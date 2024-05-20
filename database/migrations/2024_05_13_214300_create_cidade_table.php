@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('cidade', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('estado_id')->nullable()->index('estado_id_foreign');
             $table->string('nome');
-            $table->string('cep');
-
+            $table->unsignedBigInteger('estado_id')->nullable()->index('estado_id_foreign');
         });
     }
 

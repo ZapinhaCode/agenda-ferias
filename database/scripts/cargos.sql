@@ -1,0 +1,11 @@
+INSERT INTO cargo (id, nome, permissao) VALUES (1, 'Administrativo', 'administrador');
+INSERT INTO cargo (id, nome, permissao) VALUES (2, 'Supervisor de Equipe', 'gestor');
+INSERT INTO cargo (id, nome, permissao) VALUES (3, 'Desenvolvedor de Software', 'funcionario');
+INSERT INTO cargo (id, nome, permissao) VALUES (4, 'CEO', 'administrador');
+INSERT INTO cargo (id, nome, permissao) VALUES (5, 'RH', 'administrador');
+INSERT INTO cargo (id, nome, permissao) VALUES (6, 'Diretor de Operações', 'administrador');
+INSERT INTO cargo (id, nome, permissao) VALUES (7, 'Diretor Financeiro', 'gestor');
+INSERT INTO cargo (id, nome, permissao) VALUES (8, 'Diretor de Tecnologia', 'administrador');
+INSERT INTO cargo (id, nome, permissao) VALUES (9, 'Gerente de Vendas', 'gestor');
+INSERT INTO cargo (id, nome, permissao) VALUES (10, 'Assistente Administrativo', 'funcionario');
+INSERT INTO cargo (id, nome, permissao) VALUES (11, 'Estagiário', 'funcionario');
