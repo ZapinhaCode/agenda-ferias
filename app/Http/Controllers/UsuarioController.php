@@ -36,4 +36,7 @@ class UsuarioController
     public function destroy($id) {
         // Deletar um usuário específico
     }
+
+    //tendel dos guri 
+
 }
