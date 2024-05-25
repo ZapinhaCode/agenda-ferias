@@ -17,3 +17,7 @@ Route::resource('usuario', UsuarioController::class)->names([
     'update' => 'usuario.atualizar',
     'destroy' => 'usuario.excluir',
 ]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
