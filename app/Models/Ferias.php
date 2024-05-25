@@ -3,9 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Ferias extends Model
+class Ferias extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+
+    protected $fillable = [
+        'user_id',
+        'titulo',
+        'observacao',
+        'data_inicio',
+        'data_retorno',
+        'local_ferias',
+        'status',
+        'user_autorizacao_id',
+    ];
+
 }
