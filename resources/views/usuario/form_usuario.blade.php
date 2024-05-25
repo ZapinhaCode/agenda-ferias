@@ -106,3 +106,6 @@
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="{{ asset('css/style-usuario.css') }}">
+<script src="{{ asset('js/mascaras.js') }}"></script>
