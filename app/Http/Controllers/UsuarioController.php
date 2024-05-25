@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class UsuarioController
-{
+class UsuarioController {
     public function index() {
         // Mostra a tela inicial dos usuarios
         return view('usuario.index');
@@ -18,6 +17,7 @@ class UsuarioController
     }
 
     public function store(Request $request) {
+        dd($request->all());
         // Salvar um novo usuário
     }
 
@@ -36,7 +36,4 @@ class UsuarioController
     public function destroy($id) {
         // Deletar um usuário específico
     }
-
-    //tendel dos guri 
-
 }

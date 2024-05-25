@@ -1,167 +1,108 @@
-<div class="row form-control fonte-padrao">
-    <div class="form-group row espacamento-medio">
+<div class="row">
+    <div class="form-group row">
         <div class="col-sm-4">
-            <label for="nome"><b>NOME DA PESSOA</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="nome">
+            <label for="nome"><b>Nome do Funcionario</b></label>
+            <input type="text" class="form-control form-control-lg" name="nome">
         </div>
 
         <div class="col-sm-4">
-            <label for="cpf_cnpj"><b>CPF / CNPJ</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" id="cpfCnpjInput" onkeyup="maskCpfCnpj(this)" maxlength="14" class="form-control form-control-lg rounded-0" name="cpf_cnpj">
+            <label for="cpf_cnpj"><b>CPF</b></label>
+            <input type="text" id="cpfCnpjInput" class="form-control form-control-lg" name="cpf">
         </div>
-        
+
         <div class="col-sm-4">
-            <label for="idade"><b>IDADE</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" maxlength="3" class="form-control form-control-lg rounded-0" name="idade">
+            <label for="num_rg"><b>RG N.º</b></label>
+            <input type="text" maxlength="10" class="form-control form-control-lg" name="rg">
         </div>
     </div>
 
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-4">
-            <label for="telefone_primario"><b>TELEFONE</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg rounded-0" name="telefone_primario">
-        </div>
-
-        <div class="col-sm-4">
-            <label for="telefone_secundario"><b>TELEFONE SECUNDARIO</b></label>
-            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg rounded-0" name="telefone_secundario">
-        </div>
-        
-        <div class="col-sm-4">
-            <label for="benefio"><b>BENEFÍCIO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="number" class="form-control form-control-lg rounded-0" name="beneficio">
-        </div>
-    </div>
-
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-4">
-            <label for="convenio"><b>CONVÊNIO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="convenio">
-        </div>
-
-        <div class="col-sm-4">
-            <label for="desc_convenio"><b>DESCRIÇÃO CONVÊNIO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="desc_convenio">
-        </div>
-        
-        <div class="col-sm-4">
-            <label for="margem"><b>MARGEM (R$)</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="margem" id="campoMoeda" oninput="formatarMoeda(this)">
-        </div>
-    </div>
-
-    <div class="form-group row espacamento-medio">
+    <div class="form-group row">
         <div class="col-sm-6">
-            <label for="email"><b>E-MAIL PARTICULAR</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="email" class="form-control form-control-lg rounded-0" name="email">
-        </div>
-    </div>
-
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-3">
-            <label for="chave_pix"><b>CHAVE PIX</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="chave_pix">
+            <label for="email"><b>E-mail</b></label>
+            <input type="email" class="form-control form-control-lg" name="email">
         </div>
 
         <div class="col-sm-3">
-            <label for="banco_nome"><b>BANCO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="banco_nome">
-        </div>
-        
-        <div class="col-sm-3">
-            <label for="banco_agencia"><b>AGÊNCIA</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="banco_agencia">
-        </div>
-
-        <div class="col-sm-3">
-            <label for="banco_conta"><b>CONTA</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="banco_conta">
-        </div>
-    </div>
-
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-3">
-            <label for="sexo"><b>SEXO</b></label>
-            <select class="form-control form-control-lg rounded-0" name="sexo">
+            <label for="sexo"><b>Sexo</b></label>
+            <select class="form-control form-control-lg" name="sexo">
                 <option value="MASCULINO">Masculino</option>
                 <option value="FEMININO">Feminino</option>
-            </select>                 
+            </select>
         </div>
 
         <div class="col-sm-3">
-            <label for="data_nascimento"><b>DATA NASCIMENTO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="data_nascimento" id="dateInput" onkeyup="maskDate(this)">
-        </div>
-        
-        <div class="col-sm-3">
-            <label for="naturalidade"><b>NATURALIDADE (CIDADE E ESTADO)</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="naturalidade">
-        </div>
-
-        <div class="col-sm-3">
-            <label for="nacionalidade"><b>NACIONALIDADE</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="nacionalidade">
+            <label for="data_nascimento"><b>Data Nascimento</b></label>
+            <input type="text" class="form-control form-control-lg" name="data_nascimento">
         </div>
     </div>
 
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-3">
-            <label for="num_rg"><b>RG N.º</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" maxlength="10" class="form-control form-control-lg rounded-0" name="num_rg">
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="cargo_id"><b>Cargo</b></label>
+            <select class="form-control form-control-lg" name="cargo_id">
+                {{-- trazer option do banco --}}
+                <option value=""></option>
+            </select>
         </div>
 
-        <div class="col-sm-3">
-            <label for="data_emissao"><b>DATA EMISSÃO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="data_emissao" id="dateInput" onkeyup="maskDate(this)">
-        </div>
-        
-        <div class="col-sm-3">
-            <label for="orgao_emissor"><b>ÓRGÃO EMISSOR</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="orgao_emissor">
+        <div class="col-sm-4">
+            <label for="telefone"><b>Telefone</b></label>
+            <input type="tel" maxlength="15" class="form-control form-control-lg" name="telefone">
         </div>
 
-        <div class="col-sm-3">
-            <label for="uf"><b>UF</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="uf">
+        <div class="col-sm-4">
+            <label for="cargo_id"><b>Setor</b></label>
+            <select class="form-control form-control-lg" name="setor_id">
+                {{-- trazer option do banco --}}
+                <option value=""></option>
+            </select>
         </div>
     </div>
 
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-3">
-            <label for="meu_inss"><b>MEU INSS</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" maxlength="10" class="form-control form-control-lg rounded-0" name="meu_inss">
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="endereco"><b>Endereço</b></label>
+            <input type="text"class="form-control form-control-lg" name="endereco">
         </div>
 
-        <div class="col-sm-3">
-            <label for="especie_inss"><b>ESPÉCIE INSS</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="especie_inss">
-        </div>
-        
-        <div class="col-sm-3">
-            <label for="orgao_beneficio"><b>ÓRGÃO DO BENEFÍCIO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="orgao_beneficio">
+        <div class="col-sm-4">
+            <label for="bairro"><b>Bairro</b></label>
+            <input type="text"class="form-control form-control-lg" name="bairro">
         </div>
 
-        <div class="col-sm-3">
-            <label for="funcao_siape"><b>FUNÇÃO SIAPE</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="funcao_siape">
+        <div class="col-sm-4">
+            <label for="numero_endereco"><b>Número</b></label>
+            <input type="text"class="form-control form-control-lg" name="numero_endereco">
         </div>
     </div>
 
-    <div class="form-group row espacamento-medio">
-        <div class="col-sm-4">
-            <label for="observacoes"><b>OBSERVAÇÕES</b></label>
-            <textarea class="form-control form-control-lg rounded-0" name="observacoes"></textarea>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label for="complemento_endereco"><b>Complemento</b></label>
+            <input type="text" class="form-control form-control-lg" name="complemento_endereco">
         </div>
 
-        <div class="col-sm-4">
-            <label for="endereco"><b>ENDEREÇO</b> <i class="text-danger" title="Campo obrigatório">*</i></label>
-            <input type="text" class="form-control form-control-lg rounded-0" name="endereco">
+        <div class="col-sm-3">
+            <label for="estado_id"><b>Estado</b></label>
+            <select class="form-control form-control-lg" name="estado_id">
+                {{-- trazer option do banco --}}
+                <option value=""></option>
+            </select>
         </div>
-        
-        <div class="col-sm-4">
-            <label for="complemento"><b>COMPLEMENTO</b></label>
-            <textarea class="form-control form-control-lg rounded-0" name="complemento"></textarea>
+
+        <div class="col-sm-3">
+            <label for="cidade_id"><b>Cidade</b></label>
+            <select class="form-control form-control-lg" name="cidade_id">
+                {{-- trazer option do banco --}}
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-12" style="text-align: center">
+            <button class="btn btn-effect-ripple btn-success btn-lg" type="submit">Enviar</button>
+            <a href="{{ route('usuario.lista') }}" class="btn btn-effect-ripple btn-danger btn-lg">Cancelar</a>
         </div>
     </div>
 </div>
