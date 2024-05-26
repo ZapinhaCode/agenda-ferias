@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" >
     <div class="form-group row">
         <div class="col-sm-4">
             <label for="nome"><b>Nome do Funcionario</b></label>
