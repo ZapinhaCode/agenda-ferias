@@ -7,7 +7,7 @@
 
         <div class="col-sm-4">
             <label for="cpf_cnpj"><b>CPF</b></label>
-            <input type="text" id="cpfCnpjInput" class="form-control form-control-lg" name="cpf">
+            <input type="text" id="cpf" oninput="maskCpf(this)" maxlength="14" class="form-control form-control-lg" name="cpf">
         </div>
 
         <div class="col-sm-4">
@@ -32,7 +32,7 @@
 
         <div class="col-sm-3">
             <label for="data_nascimento"><b>Data Nascimento</b></label>
-            <input type="text" class="form-control form-control-lg" name="data_nascimento">
+            <input type="date" class="form-control form-control-lg" name="data_nascimento">
         </div>
     </div>
 
@@ -47,7 +47,7 @@
 
         <div class="col-sm-4">
             <label for="telefone"><b>Telefone</b></label>
-            <input type="tel" maxlength="15" class="form-control form-control-lg" name="telefone">
+            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg" name="telefone">
         </div>
 
         <div class="col-sm-4">
