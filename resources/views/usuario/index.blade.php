@@ -6,7 +6,7 @@
             <table class="table table-striped table-hover table-dark display" id="dataTable">
                 <thead>
                     <tr>
-                        <th class="text-center" width="20%">Nome Funcionario</th>
+                        <th class="text-center" width="20%">Nome do Funcionário</th>
                         <th class="text-center" width="20%">CPF</th>
                         <th class="text-center" width="15%">Telefone</th>
                         <th class="text-center" width="15%">Cargo</th>
