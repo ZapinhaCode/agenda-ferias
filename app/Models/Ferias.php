@@ -10,6 +10,8 @@ class Ferias extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'ferias';
+
     protected $fillable = [
         'user_id',
         'titulo',
@@ -21,4 +23,11 @@ class Ferias extends Authenticatable
         'user_autorizacao_id',
     ];
 
+    public function usuario() {
+        return $this->belongsTo(Usuario::class, 'user_id');
+    }
+
+    public function usuarioAutoriza() {
+        return $this->belongsTo(Usuario::class, 'user_autorizacao_id');
+    }
 }

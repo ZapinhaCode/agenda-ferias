@@ -9,9 +9,14 @@ class Cargo extends Model
 {
     use HasFactory;
 
+    protected $table = 'cargo';
+
     protected $fillable = [
-        'user_id',
         'nome',
         'permissao',
     ];
+
+    public function usuarios() {
+        return $this->hasMany(Usuario::class);
+    }
 }

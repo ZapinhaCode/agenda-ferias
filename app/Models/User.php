@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'usuario';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -56,5 +58,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function cargo() {
+        return $this->belongsTo(Cargo::class);
+    }
+
+    public function estado() {
+        return $this->belongsTo(Estado::class);
+    }
+
+    public function cidade() {
+        return $this->belongsTo(Cidade::class);
+    }
+
+    public function setor() {
+        return $this->belongsTo(Setor::class);
     }
 }
