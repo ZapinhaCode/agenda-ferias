@@ -1,4 +1,16 @@
-<div class="row" >
+<div class="row">
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label for="email"><b>E-mail</b></label>
+            <input type="email" class="form-control form-control-lg" name="email">
+        </div>
+
+        <div class="col-sm-6">
+            <label>Senha</label>
+            <input type="password" class="form-control form-control-lg" name="password">
+        </div>
+    </div>
+
     <div class="form-group row">
         <div class="col-sm-4">
             <label for="nome"><b>Nome do Funcionario</b></label>
@@ -17,11 +29,6 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-6">
-            <label for="email"><b>E-mail</b></label>
-            <input type="email" class="form-control form-control-lg" name="email">
-        </div>
-
         <div class="col-sm-3">
             <label for="sexo"><b>Sexo</b></label>
             <select class="form-control form-control-lg" name="sexo">
@@ -38,16 +45,16 @@
 
     <div class="form-group row">
         <div class="col-sm-4">
+            <label for="telefone"><b>Telefone</b></label>
+            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg" name="telefone">
+        </div>
+
+        <div class="col-sm-4">
             <label for="cargo_id"><b>Cargo</b></label>
             <select class="form-control form-control-lg" name="cargo_id">
                 {{-- trazer option do banco --}}
                 <option value=""></option>
             </select>
-        </div>
-
-        <div class="col-sm-4">
-            <label for="telefone"><b>Telefone</b></label>
-            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg" name="telefone">
         </div>
 
         <div class="col-sm-4">
@@ -101,8 +108,8 @@
 
     <div class="form-group row">
         <div class="col-sm-12" style="text-align: center">
-            <button class="btn btn-effect-ripple btn-success btn-lg" type="submit">Enviar</button>
-            <a href="{{ route('usuario.lista') }}" class="btn btn-effect-ripple btn-danger btn-lg">Cancelar</a>
+            <button class="btn btn-effect-ripple btn-success btn-lg" type="submit"><i class="fa-solid fa-check"></i> Gravar</button>
+            <a href="{{ route('usuario.lista') }}" class="btn btn-effect-ripple btn-danger btn-lg"><i class="fa-solid fa-arrow-right"></i> Voltar</a>
         </div>
     </div>
 </div>
