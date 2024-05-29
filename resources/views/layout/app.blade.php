@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2-web/css/all.min.css') }}">
         <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     </head>
-
+awdaw
     <body>
         <div id="app">
             @include('partials.navbar') <!-- Inclui a view parcial do menu -->
