@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use App\Repositories\UsuarioRepository;
 
 class UsuarioController {
+    private $usuarioRepository;
+
+    public function __construct(UsuarioRepository $usuarioRepository) {
+        $this->usuarioRepository = $usuarioRepository;
+    }
+
     public function index() {
         // Mostra a tela inicial dos usuarios
-        return view('usuario.index');
+        $usuarios = $this->usuarioRepository->all();
+        return view('usuario.index', compact('usuarios'));
     }
 
     public function create() {
@@ -23,6 +30,7 @@ class UsuarioController {
 
     public function show($id) {
         // Mostrar um usuário específico
+        dd('rota de editar');
     }
 
     public function edit($id) {
@@ -35,5 +43,6 @@ class UsuarioController {
 
     public function destroy($id) {
         // Deletar um usuário específico
+        dd('rota de excluir');
     }
 }
