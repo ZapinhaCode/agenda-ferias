@@ -7,39 +7,6 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+@import 'tema';
 
 
-[data-bs-theme="test"] {
-    color-scheme: dark;
-    --bs-body-color: #DEE2E6; /* Cor clara extraída */
-    --bs-body-color-rgb: 167, 242, 186;
-    --bs-body-bg: #2C2C2C; /* Cor escura extraída */
-    --bs-body-bg-rgb: 44, 44, 44;
-    --bs-emphasis-color: #ffffff; /* Cor clara extraída */
-    --bs-emphasis-color-rgb: 43, 217, 168;
-    --bs-secondary-color: rgb(32, 54, 64);
-    --bs-secondary-color-rgb: 32, 54, 64;
-    --bs-secondary-bg-rgb: 32, 54, 64;
-    --bs-tertiary-color: rgba(167, 242, 186, 0.5);
-    --bs-tertiary-color-rgb: 167, 242, 186;
-    --bs-tertiary-bg-rgb: 43, 48, 53;
-    --bs-primary-text-emphasis: hsl(210, 14%, 89%); /* Cor clara extraída */
-    --bs-secondary-text-emphasis: #A7F2BA; /* Cor clara extraída */
-    --bs-success-text-emphasis: #fafafa; /* Cor clara extraída */
-    --bs-info-text-emphasis: #cde7e0; /* Cor clara extraída */
-    --bs-light-text-emphasis: #A7F2BA; /* Cor clara extraída */
-    --bs-primary-bg-subtle: #2C2C2C; /* Cor escura extraída */
-    --bs-primary-border-subtle: #2BD9A8; /* Cor clara extraída */
-    --bs-heading-color: inherit;
-    --bs-link-color: #2BD9A8; /* Cor clara extraída */
-    --bs-link-hover-color: rgb(12, 99, 74); /* Cor clara extraída */
-    --bs-link-color-rgb: 43, 217, 168;
-    --bs-link-hover-color-rgb: 12, 99, 74;
-    --bs-code-color: #cafff0; /* Cor clara extraída */
-    --bs-highlight-color: #A7F2BA; /* Cor clara extraída */
-    --bs-highlight-bg: #2C2C2C; /* Cor escura extraída */
-    --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
-    --bs-form-valid-color: #c2ffee; /* Cor clara extraída */
-    --bs-form-valid-border-color: #d7fff4; /* Cor clara extraída */
-  }
-  

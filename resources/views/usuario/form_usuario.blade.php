@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="email"><b>E-mail</b></label>

@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarText">
             <ul class="navbar-nav flex-fill justify-content-between" >
                 <li class="nav-item p-2 mx-3">
-                    <a class="nav-link ps-5 fs-4 " href="#">Calendário</a>
+                    <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="#">Calendário</a>
                 </li>
                 <li class="nav-item p-2 mx-3">
-                    <a class="nav-link fs-4" href="#">Solicitações</a>
+                    <a class="nav-link fs-4 text-primary-emphasis" href="#">Solicitações</a>
                 </li>
                 <li class="nav-item dropdown p-2 mx-3">
-          <a class="nav-link dropdown-toggle pe-5 fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle pe-5 fs-4 text-primary-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Administrador
           </a>
           <ul class="dropdown-menu">
@@ -28,8 +28,8 @@
         </li>
             </ul>
             <div class="d-flex justify-content-right">
-                <span class="p-1 navbar-text my-auto ms-5 ps-5  fs-5 text-end">Nome</span>
-                <i class="p-1 fa-solid fa-circle-user" style="width: 80px; height: 80px;"></i>
+                <span class="p-1 navbar-text my-auto ms-5 ps-5  fs-5 text-end text-primary-emphasis">Nome</span>
+                <i class="p-1 fa-solid fa-circle-user" style="font-size: 80px;"></i>
             </div>
         </div>
 
