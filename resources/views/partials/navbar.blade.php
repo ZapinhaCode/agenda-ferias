@@ -13,16 +13,15 @@
                     <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="#">Calendário</a>
                 </li>
                 <li class="nav-item p-2 mx-3">
-                    <a class="nav-link fs-4 text-primary-emphasis" href="#">Solicitações</a>
+                    <a class="nav-link fs-4 text-primary-emphasis" href="#"> <i class="fa-solid fa-envelope-circle-check" style="font-size:21px"></i>  Solicitações</a>
                 </li>
                 <li class="nav-item dropdown p-2 mx-3">
           <a class="nav-link dropdown-toggle pe-5 fs-4 text-primary-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Administrador
+            <i class="fa-solid fa-user-tie" style="font-size: 21px"></i>  Administrador
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Controle</a></li>
-            <li><a class="dropdown-item" href="#">op1</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ route('usuario.lista') }}">Funcionário</a></li>
+            <li><a class="dropdown-item" href="{{ route('setor.lista') }}">Setor</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>

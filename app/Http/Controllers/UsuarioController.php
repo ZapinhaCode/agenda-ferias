@@ -21,17 +21,16 @@ class UsuarioController {
         // Mostra a tela inicial dos usuarios
 
         $usuarios = $this->usuarioRepository->all();
-
         return view('usuario.index', compact('usuarios'));
     }
 
     public function create() {
         // Mostra a tela para criar o usuario
+
         $cargos = Cargo::all();
         $setores = Setores::all();
         $estados = Estado::all();
         $cidades = Cidade::all();
-
         return view('usuario.adicionar', compact('cargos', 'setores', 'estados', 'cidades'));
     }
 
@@ -41,7 +40,6 @@ class UsuarioController {
         $usuario = new User($request->all());
         $usuario->password = bcrypt($request->password); // Criptografa a senha
         $usuario->save();
-
         return redirect()->route('usuario.lista', $usuario->id)->with('success', 'Usuário criado com sucesso!');
     }
 
@@ -57,13 +55,13 @@ class UsuarioController {
         $setores = Setores::all();
         $estados = Estado::all();
         $cidades = Cidade::all();
-
         // dd($usuario);
         return view('usuario.alterar', compact('usuario', 'cargos', 'setores', 'estados', 'cidades',));
     }
 
     public function update(Request $request, $id) {
         // Atualizar um usuário específico
+
         $usuario = User::findOrFail($id);
         dd('atualiza');
         $usuario->update($request->all());

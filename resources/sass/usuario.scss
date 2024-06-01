@@ -1,0 +1,16 @@
+.alinha-botao-direita {
+    float: right;
+    margin-left: 10px;
+}
+
+.botao-cadastro {
+    height: 52px;
+    width: 190px;
+    color: rgba(255, 255, 255, 0.15);
+    border-radius: 35px;
+}
+
+.botao-cadastro:hover {
+    border-radius: 35px;
+    color: rgb(32, 54, 64);
+}

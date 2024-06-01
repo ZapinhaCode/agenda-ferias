@@ -3,7 +3,14 @@
 @section('content')
     <div class="row">
         <div class="form-group">
-            <h1><b>Tela inicial de funcionários</b></h1>
+            <h1 style="display: inline-block"><b>Tela inicial de funcionários</b></h1>
+            <div class="alinha-botao-direita">
+                <a href="{{ route('usuario.adicionar') }}">
+                    <button class="btn btn-effect-ripple btn-outline-secondary btn-lg botao-cadastro" type="button">
+                        <i class="fa-solid fa-user-plus" style="font-size: 21px"></i> Cadastrar
+                    </button>
+                </a>
+            </div>
             <br><br>
         </div>
 

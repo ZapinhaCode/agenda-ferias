@@ -2,29 +2,29 @@
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="email"><b>E-mail</b></label>
-            <input type="email" class="form-control form-control-lg" name="email" value="{{ isset($usuario) ? $usuario->email : null }}">
+            <input type="email" class="form-control form-control-lg" placeholder="Digite o e-mail" name="email" value="{{ isset($usuario) ? $usuario->email : null }}">
         </div>
 
         <div class="col-sm-6">
             <label>Senha</label>
-            <input type="password" class="form-control form-control-lg" name="password">
+            <input type="password" class="form-control form-control-lg" name="password" placeholder="Digite a sua senha">
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-sm-4">
             <label for="nome"><b>Nome do Funcionario</b></label>
-            <input type="text" class="form-control form-control-lg" name="nome" value="{{ isset($usuario) ? $usuario->nome : null }}">
+            <input type="text" class="form-control form-control-lg" placeholder="Digite o nome do funcionário" name="nome" value="{{ isset($usuario) ? $usuario->nome : null }}">
         </div>
 
         <div class="col-sm-4">
             <label for="cpf_cnpj"><b>CPF</b></label>
-            <input type="text" id="cpf" oninput="maskCpf(this)" maxlength="14" class="form-control form-control-lg" name="cpf" value="{{ isset($usuario) ? $usuario->cpf : null }}">
+            <input type="text" id="cpf" oninput="maskCpf(this)" maxlength="14" placeholder="Digite o CPF" class="form-control form-control-lg" name="cpf" value="{{ isset($usuario) ? $usuario->cpf : null }}">
         </div>
 
         <div class="col-sm-4">
             <label for="num_rg"><b>RG N.º</b></label>
-            <input type="text" maxlength="10" class="form-control form-control-lg" name="rg" value="{{ isset($usuario) ? $usuario->rg : null }}">
+            <input type="text" maxlength="10" class="form-control form-control-lg" placeholder="Digite o RG" name="rg" value="{{ isset($usuario) ? $usuario->rg : null }}">
         </div>
     </div>
 
@@ -46,7 +46,7 @@
     <div class="form-group row">
         <div class="col-sm-4">
             <label for="telefone"><b>Telefone</b></label>
-            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" class="form-control form-control-lg" name="telefone" value="{{ isset($usuario) ? $usuario->telefone : null }}">
+            <input type="tel" onkeyup="handlePhone(event)" maxlength="15" placeholder="Digite o telefone (DDD) primeiro" class="form-control form-control-lg" name="telefone" value="{{ isset($usuario) ? $usuario->telefone : null }}">
         </div>
 
         <div class="col-sm-4">
@@ -71,24 +71,24 @@
     <div class="form-group row">
         <div class="col-sm-4">
             <label for="endereco"><b>Endereço</b></label>
-            <input type="text"class="form-control form-control-lg" name="endereco" value="{{ isset($usuario) ? $usuario->endereco : null }}">
+            <input type="text"class="form-control form-control-lg" name="endereco" value="{{ isset($usuario) ? $usuario->endereco : null }}" placeholder="Digite o endereço de onde mora">
         </div>
 
         <div class="col-sm-4">
             <label for="bairro"><b>Bairro</b></label>
-            <input type="text"class="form-control form-control-lg" name="bairro" value="{{ isset($usuario) ? $usuario->bairro : null }}">
+            <input type="text"class="form-control form-control-lg" placeholder="Digite o bairro onde mora" name="bairro" value="{{ isset($usuario) ? $usuario->bairro : null }}">
         </div>
 
         <div class="col-sm-4">
             <label for="numero_endereco"><b>Número</b></label>
-            <input type="text"class="form-control form-control-lg" name="numero" value="{{ isset($usuario) ? $usuario->numero : null }}">
+            <input type="text"class="form-control form-control-lg" placeholder="Digite o número da casa ou do apartamento" name="numero" value="{{ isset($usuario) ? $usuario->numero : null }}">
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="complemento"><b>Complemento</b></label>
-            <input type="text" class="form-control form-control-lg" name="complemento" value="{{ isset($usuario) ? $usuario->complemento : null }}">
+            <input type="text" class="form-control form-control-lg" placeholder="Digite um complemento do seu endereço caso precise" name="complemento" value="{{ isset($usuario) ? $usuario->complemento : null }}">
         </div>
 
         <div class="col-sm-3">
@@ -118,5 +118,4 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="{{ asset('css/style-usuario.css') }}">
 <script src="{{ asset('js/mascaras.js') }}"></script>
