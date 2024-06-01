@@ -9,6 +9,7 @@ use App\Models\Estado;
 use App\Models\Cidade;
 use App\Models\Setores;
 use App\Models\Cargo;
+use App\Http\Requests\UsuarioRequest;
 
 class UsuarioController {
     private $usuarioRepository;
@@ -34,13 +35,13 @@ class UsuarioController {
         return view('usuario.adicionar', compact('cargos', 'setores', 'estados', 'cidades'));
     }
 
-    public function store(Request $request) {
+    public function store(UsuarioRequest $request) {
         // Salvar um novo usuário
-
+        $request->validated();
         $usuario = new User($request->all());
-        $usuario->password = bcrypt($request->password); // Criptografa a senha
+        $usuario->password = bcrypt($request->password);
         $usuario->save();
-        return redirect()->route('usuario.lista', $usuario->id)->with('success', 'Usuário criado com sucesso!');
+        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário criado com sucesso!');
     }
 
     public function show($id) {
@@ -55,7 +56,6 @@ class UsuarioController {
         $setores = Setores::all();
         $estados = Estado::all();
         $cidades = Cidade::all();
-        // dd($usuario);
         return view('usuario.alterar', compact('usuario', 'cargos', 'setores', 'estados', 'cidades',));
     }
 
@@ -63,12 +63,15 @@ class UsuarioController {
         // Atualizar um usuário específico
 
         $usuario = User::findOrFail($id);
-        dd('atualiza');
         $usuario->update($request->all());
+        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário alterado com sucesso!');
     }
 
     public function destroy($id) {
         // Deletar um usuário específico
-        dd('rota de excluir');
+
+        $usuario = User::findOrFail($id);
+        $usuario->delete();
+        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário deletado do sistema com sucesso!');
     }
 }

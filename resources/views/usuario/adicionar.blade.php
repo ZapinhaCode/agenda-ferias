@@ -4,7 +4,7 @@
         <div class="row">
                 <div class="form-group">
                         <div>
-                                <h1><b>Adicionar Funcionário</b></h1>
+                                <h1><b>Adicionar Funcionário <i class="fa-solid fa-user-plus tamanho-icone-usuario"></i></b></h1>
                                 <br><br>
                         </div>
                 </div>

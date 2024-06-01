@@ -3,7 +3,13 @@
 @section('content')
     <div class="row">
         <div class="form-group">
-            <h1 style="display: inline-block"><b>Tela inicial de funcionários</b></h1>
+            @if(session('sucesso'))
+                <div class="alert alert-success">
+                    <b>{{ session('sucesso') }}</b>
+                </div>
+            @endif
+
+            <h1 style="display: inline-block"><b>Tela inicial de funcionários  <i class="fa-solid fa-users-gear tamanho-icone-usuario"></i></b></h1>
             <div class="alinha-botao-direita">
                 <a href="{{ route('usuario.adicionar') }}">
                     <button class="btn btn-effect-ripple btn-outline-secondary btn-lg botao-cadastro" type="button">
@@ -20,10 +26,10 @@
                     <tr>
                         <th class="text-center" width="20%">Nome do Funcionário</th>
                         <th class="text-center" width="20%">CPF</th>
-                        <th class="text-center" width="15%">Telefone</th>
-                        <th class="text-center" width="15%">Cargo</th>
-                        <th class="text-center" width="15%">Setor</th>
-                        <th class="text-center" width="15%">Ações</th>
+                        <th class="text-center" width="13%">Telefone</th>
+                        <th class="text-center" width="13%">Cargo</th>
+                        <th class="text-center" width="14%">Setor</th>
+                        <th class="text-center" width="20%">Ações</th>
                     </tr>
                 </thead>
                 
@@ -38,8 +44,14 @@
                                 <td class="text-center">{{ isset($usuario->setor) ? $usuario->setor->nome : 'Nenhum setor cadastrado' }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('usuario.editar', $usuario->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                    <a href="{{ route('usuario.mostrar', $usuario->id) }}"> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                    <button class="btn btn-danger btn-sm" title="Excluir"><i class="fa-solid fa-circle-xmark"></i></button>
+                                    <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
+                                    <form action="{{ route('usuario.excluir', $usuario->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm" title="Excluir">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

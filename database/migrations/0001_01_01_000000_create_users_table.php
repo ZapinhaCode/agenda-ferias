@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('telefone');
             $table->string('endereco');
             $table->integer('numero');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('bairro');
             $table->unsignedBigInteger('estado_id')->index('estado_id_foreign_usuario')->nullable();
             $table->unsignedBigInteger('cidade_id')->index('cidade_id_foreign')->nullable();

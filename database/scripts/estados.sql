@@ -16,7 +16,7 @@ INSERT INTO estado (id, nome, sigla) VALUES (15, 'Paraíba', 'PB');
 INSERT INTO estado (id, nome, sigla) VALUES (16, 'Pernambuco', 'PE');
 INSERT INTO estado (id, nome, sigla) VALUES (17, 'Piauí', 'PI');
 INSERT INTO estado (id, nome, sigla) VALUES (18, 'Paraná', 'PR');
-INSERT INTO estado (id, nome, sigla) VALUES (19, 'Rio de Janeiro', 'RJ')
+INSERT INTO estado (id, nome, sigla) VALUES (19, 'Rio de Janeiro', 'RJ');
 INSERT INTO estado (id, nome, sigla) VALUES (20, 'Rio Grande do Norte', 'RN');
 INSERT INTO estado (id, nome, sigla) VALUES (21, 'Rondônia', 'RO');
 INSERT INTO estado (id, nome, sigla) VALUES (22, 'Roraima', 'RR');
