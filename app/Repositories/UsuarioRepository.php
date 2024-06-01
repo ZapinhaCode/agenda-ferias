@@ -13,6 +13,14 @@ class UsuarioRepository {
 
     public function all() {
         return $this->model->newQuery()
+            ->with('cargo', 'setor')
+            ->get();
+    }
+
+    public function buscaUsuarioEspecifico($usuarioId) {
+        return $this->model->newQuery()
+            ->where('id', $usuarioId)
+            ->with('cargo', 'setor')
             ->get();
     }
 }

@@ -73,6 +73,6 @@ class User extends Authenticatable
     }
 
     public function setor() {
-        return $this->belongsTo(Setor::class);
+        return $this->belongsTo(Setores::class);
     }
 }
