@@ -13,6 +13,7 @@ class SetorRepository {
 
     public function all() {
         return $this->model->newQuery()
+            ->with('gerente')
             ->get();
     }
 }

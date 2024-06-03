@@ -42,7 +42,7 @@ class UsuarioController {
         $usuario = new User($request->all());
         $usuario->password = bcrypt($request->password);
         $usuario->save();
-        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário criado com sucesso!');
+        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário criado com sucesso!');
     }
 
     public function show($id) {
@@ -65,7 +65,7 @@ class UsuarioController {
 
         $usuario = User::findOrFail($id);
         $usuario->update($request->all());
-        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário alterado com sucesso!');
+        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário alterado com sucesso!');
     }
 
     public function destroy($id) {
@@ -73,6 +73,6 @@ class UsuarioController {
 
         $usuario = User::findOrFail($id);
         $usuario->delete();
-        return redirect()->route('usuario.lista', $usuario->id)->with('sucesso', 'Funcionário deletado do sistema com sucesso!');
+        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário deletado do sistema com sucesso!');
     }
 }

@@ -23,4 +23,12 @@ class UsuarioRepository {
             ->with('cargo', 'setor')
             ->get();
     }
+
+    public function listaGerente() {
+        return $this->model->newQuery()
+            ->leftJoin('cargo', 'usuario.cargo_id', 'cargo.id')
+            ->where('cargo.permissao', 'gestor')
+            ->select('usuario.*')
+            ->get();
+    }
 }
