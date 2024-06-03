@@ -37,6 +37,7 @@ class UsuarioController {
 
     public function store(UsuarioRequest $request) {
         // Salvar um novo usuário
+
         $request->validated();
         $usuario = new User($request->all());
         $usuario->password = bcrypt($request->password);

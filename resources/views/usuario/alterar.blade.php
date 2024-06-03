@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1><b>Editar cadastro  <i class="fa-solid fa-user-pen tamanho-icone-usuario"></i></b></h1>
+        <h1><b>Editar cadastro do funcionário  <i class="fa-solid fa-user-pen tamanho-icone-usuario"></i></b></h1>
 
         <div class="form-control">
             <form action="{{ route('usuario.atualizar', $usuario->id) }}" method="POST">

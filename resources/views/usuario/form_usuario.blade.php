@@ -23,7 +23,7 @@
             <input type="text" class="form-control form-control-lg" placeholder="Digite o nome do funcionário" name="nome" value="{{ isset($usuario) ? $usuario->nome : null }}">
             @error('nome')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
 
         <div class="col-sm-4">
@@ -31,7 +31,7 @@
             <input type="text" id="cpf" oninput="maskCpf(this)" maxlength="14" placeholder="Digite o CPF" class="form-control form-control-lg" name="cpf" value="{{ isset($usuario) ? $usuario->cpf : null }}">
             @error('cpf')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
 
         <div class="col-sm-4">
@@ -39,7 +39,7 @@
             <input type="text" maxlength="10" class="form-control form-control-lg" placeholder="Digite o RG" name="rg" value="{{ isset($usuario) ? $usuario->rg : null }}">
             @error('rg')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
     </div>
 
@@ -57,7 +57,7 @@
             <input type="date" class="form-control form-control-lg" name="data_nascimento" value="{{ isset($usuario) ? $usuario->data_nascimento : null }}">
             @error('data_nascimento')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
     </div>
 
@@ -101,7 +101,7 @@
             <input type="text"class="form-control form-control-lg" name="endereco" value="{{ isset($usuario) ? $usuario->endereco : null }}" placeholder="Digite o endereço de onde mora">
             @error('endereco')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
 
         <div class="col-sm-4">
@@ -117,7 +117,7 @@
             <input type="text"class="form-control form-control-lg" placeholder="Digite o número da casa ou do apartamento" name="numero" value="{{ isset($usuario) ? $usuario->numero : null }}">
             @error('numero')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
     </div>
 
