@@ -12,6 +12,10 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarText">
             <ul class="navbar-nav flex-fill justify-content-between" >
                 <li class="nav-item p-2 mx-3">
+                    <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="{{ URL('/inicial') }}"> <i class="fa-solid fa-house" style="font-size: 21px"></i>  Tela inicial</a>
+                </li>
+
+                <li class="nav-item p-2 mx-3">
                     <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="#"><i class="fa-regular fa-calendar-days" style="font-size: 21px"></i>  Calendário</a>
                 </li>
 

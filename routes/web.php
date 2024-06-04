@@ -5,8 +5,12 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FeriasController;
 use App\Http\Controllers\SetorController;
 
-Route::get('/', function () {
-    return view('layout.app');
+Route::get('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/inicial', function () {
+    return view('inicial');
 });
 
 Route::resource('usuario', UsuarioController::class)->names([
@@ -28,7 +32,3 @@ Route::resource('setor', SetorController::class)->names([
     'update' => 'setor.atualizar',
     'destroy' => 'setor.excluir',
 ]);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
