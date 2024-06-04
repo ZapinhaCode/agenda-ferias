@@ -10,11 +10,12 @@
 
         <div class="col-sm-6">
             <label for="gerente_user_id"><b>Gerente responsável  <i class="fa-solid fa-id-card"></i></b></label>
-            <select class="form-select select2" name="gerente_user_id" value="{{ isset($setor) ? $setor->gerente_user_id : null }}">
-                    <option value="nenhum">Nenhum</option>
-                    @foreach ($gerentes as $gerente)
-                        <option value="{{ $gerente->id }}">{{ $gerente->nome }}</option>
-                    @endforeach
+            <select class="form-select select2" name="gerente_user_id">
+                @foreach ($gerentes as $gerente)
+                    <option value="{{ $gerente->id }}" {{ isset($setor) && $setor->gerente_user_id == $gerente->id ? "selected" : "" }}>
+                        {{ $gerente->nome }}
+                    </option>
+                @endforeach
             </select>
             @error('gerente_user_id')
                 <div class="text-danger">{{ $message }}</div>
