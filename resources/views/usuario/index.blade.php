@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row">
-        <div class="form-group">
+    <div class="container-md">
+        <div class="container-fluid">
             @if(session('sucesso'))
                 <div class="alert alert-success">
                     <b>{{ session('sucesso') }}</b>
@@ -20,7 +20,7 @@
             <br><br>
         </div>
 
-        <div class="form-control">
+        <div class="container-fluid">
             <table class="table table-striped table-hover table-dark display" id="dataTable">
                 <thead>
                     <tr>

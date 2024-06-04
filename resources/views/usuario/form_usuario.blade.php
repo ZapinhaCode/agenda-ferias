@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="email"><b>E-mail  <i class="fa-solid fa-envelope"></i></b></label>

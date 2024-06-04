@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-md">
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="nome"><b>Nome do setor  <i class="fa-solid fa-image-portrait"></i></b></label>
