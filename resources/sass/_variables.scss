@@ -1,3 +1,8 @@
+@import 'tema';
+
+
+$prefix: 'bs-';
+
 // Body
 $body-bg: #f8fafc;
 
@@ -9,4 +14,14 @@ $line-height-base: 1.6;
 
 //Navbar
 $navbar-toggler-border-radius: '50px';
+
+
+
+//inputs
+//$input-color:         #2490fc;
+$input-focus-border-color: var(--#{$prefix}tertiary-color);
+$input-focus-color: var(--#{$prefix}tertiary-color);
+$input-placeholder-color: var(--#{$prefix}tertiary-color);
+$input-border-color: var(--#{$prefix}border-color);
+$input-bg: var(--#{$prefix}tertiary-bg);
 

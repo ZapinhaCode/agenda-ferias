@@ -7,6 +7,8 @@ window.$ = window.jQuery = $;
 // Aqui que pode ser alterado as coisas dos select2
 $(function () {
     $('.select2').select2({
-        theme: 'bootstrap-5'
+        theme: 'bootstrap-5',
+
     });
 });
+

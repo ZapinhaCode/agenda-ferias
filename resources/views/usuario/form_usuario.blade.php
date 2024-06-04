@@ -74,9 +74,7 @@
             <label for="cargo_id"><b>Cargo  <i class="fa-solid fa-briefcase"></i></b></label>
             <select class="form-select select2" name="cargo_id">
                 @foreach ($cargos as $cargo)
-                    <option value="{{ $cargo->id }}" {{ isset($usuario) && $usuario->cargo_id == $cargo->id ? "selected" : "" }}>
-                        {{ $cargo->nome }}
-                    </option>
+                    <option value="{{ $cargo->id }}">{{ $cargo->nome }}</option>
                 @endforeach
             </select>
             @error('cargo_id')
@@ -88,9 +86,7 @@
             <label for="setor_id"><b>Setor  <i class="fa-solid fa-sitemap"></i></b></label>
             <select class="form-select select2" name="setor_id">
                 @foreach ($setores as $setor)
-                    <option value="{{ $setor->id }}" {{ isset($usuario) && $usuario->setor_id == $setor->id ? "selected" : "" }}>
-                        {{ $setor->nome }}
-                    </option>
+                    <option value="{{ $setor->id }}">{{ $setor->nome }}</option>
                 @endforeach
             </select>
             @error('setor_id')
@@ -136,11 +132,9 @@
 
         <div class="col-sm-3">
             <label for="estado_id"><b>Estado  <i class="fa-solid fa-globe"></i></b></label>
-            <select class="form-select select2" name="estado_id">
+            <select class="form-select select2" name="estado_id" value="{{ isset($usuario) ? $usuario->estado_id : null }}">
                 @foreach ($estados as $estado)
-                    <option value="{{ $estado->id }}" {{ isset($usuario) && $usuario->estado_id == $estado->id ? "selected" : "" }}>
-                        {{ $estado->nome }}
-                    </option>
+                    <option value="{{ $estado->id }}">{{ $estado->nome }}</option>
                 @endforeach
             </select>
             @error('estado_id')
@@ -150,11 +144,9 @@
 
         <div class="col-sm-3">
             <label for="cidade_id"><b>Cidade  <i class="fa-solid fa-globe"></i></b></label>
-            <select class="form-select select2" name="cidade_id">
+            <select class="form-select select2" name="cidade_id" value="{{ isset($usuario) ? $usuario->cidade_id : null }}">
                 @foreach ($cidades as $cidade)
-                    <option value="{{ $cidade->id }}" {{ isset($usuario) && $usuario->cidade_id == $cidade->id ? "selected" : "" }}>
-                        {{ $cidade->nome }}
-                    </option>
+                    <option value="{{ $cidade->id }}">{{ $cidade->nome }}</option>
                 @endforeach
             </select>
             @error('cidade_id')
