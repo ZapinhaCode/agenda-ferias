@@ -12,7 +12,7 @@
             <h1 style="display: inline-block"><b>Tela inicial de setores  <i class="fa-solid fa-sitemap"></i></b></h1>
 
             <div class="alinha-botao-direita">
-                <a href="{{ route('setor.adicionar') }}">
+                <a href="{{ route('adm.setor.adicionar') }}">
                     <button class="btn btn-effect-ripple btn-outline-secondary btn-lg botao-cadastro" type="button">
                         <i class="fa-solid fa-square-plus" style="font-size: 21px"></i> Cadastrar
                     </button>
@@ -39,16 +39,16 @@
                             <td class="text-center">{{ $setor->gerente->nome }}</td>
                             <td class="text-center">{{ $setor->created_at }}</td>
                             <td class="text-center">
-                                <a href="{{ route('setor.editar', $setor->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                <a href="{{ route('adm.setor.editar', $setor->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
                                 <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                <form action="{{ route('setor.excluir', $setor->id) }}" method="POST">
+                                <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm" title="Excluir">
                                         <i class="fa-solid fa-circle-xmark"></i>
                                     </button>
                                 </form>
-                            </td>                            
+                            </td>
                         @endforeach
                     @else
                         <td class="text-center" colspan="3">Nenhum registro encontrado</td>

@@ -11,7 +11,7 @@
 
             <h1 style="display: inline-block"><b>Tela inicial de funcionários  <i class="fa-solid fa-users-gear tamanho-icone-usuario"></i></b></h1>
             <div class="alinha-botao-direita">
-                <a href="{{ route('usuario.adicionar') }}">
+                <a href="{{ route('adm.usuario.adicionar') }}">
                     <button class="btn btn-effect-ripple btn-outline-secondary btn-lg botao-cadastro" type="button">
                         <i class="fa-solid fa-user-plus" style="font-size: 21px"></i> Cadastrar
                     </button>
@@ -43,9 +43,9 @@
                                 <td class="text-center">{{ $usuario->cargo->nome }}</td>
                                 <td class="text-center">{{ isset($usuario->setor) ? $usuario->setor->nome : 'Nenhum setor cadastrado' }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('usuario.editar', $usuario->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                    <a href="{{ route('adm.usuario.editar', $usuario->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
                                     <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                    <form action="{{ route('usuario.excluir', $usuario->id) }}" method="POST">
+                                    <form action="{{ route('adm.usuario.excluir', $usuario->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm" title="Excluir">

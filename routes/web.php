@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\FeriasController;
 use App\Http\Controllers\SetorController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/login', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -13,22 +14,34 @@ Route::get('/inicial', function () {
     return view('inicial');
 });
 
-Route::resource('usuario', UsuarioController::class)->names([
-    'index' => 'usuario.lista',
-    'create' => 'usuario.adicionar',
-    'store' => 'usuario.salvar',
-    'show' => 'usuario.mostrar',
-    'edit' => 'usuario.editar',
-    'update' => 'usuario.atualizar',
-    'destroy' => 'usuario.excluir',
+Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
+
+Route::resource('adm/usuario', UsuarioController::class)->names([
+    'index' => 'adm.usuario.lista',
+    'create' => 'adm.usuario.adicionar',
+    'store' => 'adm.usuario.salvar',
+    'show' => 'adm.usuario.mostrar',
+    'edit' => 'adm.usuario.editar',
+    'update' => 'adm.usuario.atualizar',
+    'destroy' => 'adm.usuario.excluir',
 ]);
 
-Route::resource('setor', SetorController::class)->names([
-    'index' => 'setor.lista',
-    'create' => 'setor.adicionar',
-    'store' => 'setor.salvar',
-    'show' => 'setor.mostrar',
-    'edit' => 'setor.editar',
-    'update' => 'setor.atualizar',
-    'destroy' => 'setor.excluir',
+Route::resource('adm/setor', SetorController::class)->names([
+    'index' => 'adm.setor.lista',
+    'create' => 'adm.setor.adicionar',
+    'store' => 'adm.setor.salvar',
+    'show' => 'adm.setor.mostrar',
+    'edit' => 'adm.setor.editar',
+    'update' => 'adm.setor.atualizar',
+    'destroy' => 'adm.setor.excluir',
+]);
+
+Route::resource('ferias', FeriasController::class)->names([
+    'index' => 'ferias.lista',
+    'create' => 'ferias.adicionar',
+    'store' => 'ferias.salvar',
+    'show' => 'ferias.mostrar',
+    'edit' => 'ferias.editar',
+    'update' => 'ferias.atualizar',
+    'destroy' => 'ferias.excluir',
 ]);

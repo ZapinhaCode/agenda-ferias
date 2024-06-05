@@ -26,7 +26,7 @@
     <div class="form-group row">
         <div class="col-sm-12" style="text-align: center">
             <button class="btn btn-effect-ripple btn-success btn-lg" type="submit"><i class="fa-solid fa-check"></i> Gravar</button>
-            <a href="{{ route('setor.lista') }}" class="btn btn-effect-ripple btn-danger btn-lg"><i class="fa-solid fa-arrow-right"></i> Voltar</a>
+            <a href="{{ route('adm.setor.lista') }}" class="btn btn-effect-ripple btn-danger btn-lg"><i class="fa-solid fa-arrow-right"></i> Voltar</a>
         </div>
     </div>
 </div>

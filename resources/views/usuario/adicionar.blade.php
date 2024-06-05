@@ -6,7 +6,7 @@
                 <h1><b>Adicionar Funcionário <i class="fa-solid fa-user-plus tamanho-icone-usuario"></i></b></h1>
 
                 <div class="container-fluid">
-                        <form action="{{ route('usuario.salvar') }}" method="POST">
+                        <form action="{{ route('adm.usuario.salvar') }}" method="POST">
                            @csrf
                            @include('usuario.form_usuario')
                         </form>

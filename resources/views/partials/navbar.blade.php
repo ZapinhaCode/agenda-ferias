@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="nav-item p-2 mx-3">
-                    <a class="nav-link fs-4 text-primary-emphasis" href="#"> <i class="fa-solid fa-envelope-circle-check" style="font-size:21px"></i>  Solicitações</a>
+                    <a class="nav-link fs-4 text-primary-emphasis" href="{{ route('ferias.lista') }}"> <i class="fa-solid fa-envelope-circle-check" style="font-size:21px"></i>  Minhas solicitações</a>
                 </li>
 
                 <li class="nav-item dropdown p-2 mx-3">
@@ -29,8 +29,9 @@
                     </a>
             
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('usuario.lista') }}"><i class="fa-solid fa-users"></i>  Funcionário(s)</a></li>
-                        <li><a class="dropdown-item" href="{{ route('setor.lista') }}"><i class="fa-solid fa-sitemap"></i>  Setores</a></li>
+                        <li><a class="dropdown-item" href="{{ route('adm.usuario.lista') }}"><i class="fa-solid fa-users"></i>  Funcionário(s)</a></li>
+                        <li><a class="dropdown-item" href="{{ route('adm.setor.lista') }}"><i class="fa-solid fa-sitemap"></i>  Setores</a></li>
+                        <li><a class="dropdown-item" href="{{ route('adm.ferias.solicitacoes') }}"><i class="fa-solid fa-calendar-check"></i>  Aprovar solicitações</a></li>
                     </ul>
                 </li>
             </ul>
