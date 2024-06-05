@@ -17,3 +17,32 @@
 }
 
 
+#app {
+    position: relative;
+    min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+}
+
+.bg-image {
+    // A imagem de fundo
+    background-image: url('/images/bg1.webp'); /* Verifique se o caminho está correto */
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed; /* Altera para fixed */
+    width: 100%;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Garante que o conteúdo seja centralizado verticalmente */
+    flex-direction: column;
+}

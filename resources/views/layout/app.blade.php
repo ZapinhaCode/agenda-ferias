@@ -10,11 +10,15 @@
         <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     </head>
     <body>
-        <div id="app">
+    <div id="app">
+        <div class="bg-image"></div>
+        <div class="content">
             @include('partials.navbar') <!-- Inclui a view parcial do menu -->
-            @yield('content')
+            <div class="container-md bg-dark object-fit-fill border rounded pt-4">
+                @yield('content')
+            </div>
         </div>
-
+    </div>
         @vite(['resources/js/app.js', 'resources/js/tables.js'])
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
