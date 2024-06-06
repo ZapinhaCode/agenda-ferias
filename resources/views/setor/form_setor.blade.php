@@ -2,7 +2,7 @@
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="nome"><b>Nome do setor  <i class="fa-solid fa-image-portrait"></i></b></label>
-            <input type="text" class="form-control form-control-lg" placeholder="Digite o nome do setor" name="nome" value="{{ isset($setor) ? $setor->nome : null }}">
+            <input type="text" class="form-control form-control-lg" placeholder="Digite o nome do setor" name="nome" value="{{ isset($setor) ? $setor->nome : old('nome') }}">
             @error('nome')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

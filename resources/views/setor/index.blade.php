@@ -7,6 +7,10 @@
                 <div class="alert alert-success">
                     <b>{{ session('sucesso') }}</b>
                 </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger">
+                    <b>{{ session('error') }}</b>
+                </div>
             @endif
 
             <h1 style="display: inline-block"><b>Tela inicial de setores  <i class="fa-solid fa-sitemap"></i></b></h1>
@@ -35,23 +39,27 @@
                 <tbody>
                     @if(!empty($setores))
                         @foreach ($setores as $setor)
-                            <td class="text-center">{{ $setor->nome }}</td>
-                            <td class="text-center">{{ $setor->gerente->nome }}</td>
-                            <td class="text-center">{{ $setor->created_at }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('adm.setor.editar', $setor->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                    </button>
-                                </form>
-                            </td>
+                            <tr>
+                                <td class="text-center">{{ $setor->nome }}</td>
+                                <td class="text-center">{{ $setor->gerente->nome }}</td>
+                                <td class="text-center">{{ $setor->created_at }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('adm.setor.editar', $setor->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                    <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
+                                    <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm" title="Excluir">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
                         @endforeach
                     @else
-                        <td class="text-center" colspan="3">Nenhum registro encontrado</td>
+                        <tr>
+                            <td class="text-center" colspan="3">Nenhum registro encontrado</td>
+                        </tr>
                     @endif
                 </tbody>
             </table>

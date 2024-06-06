@@ -8,6 +8,7 @@ use App\Repositories\SetorRepository;
 use App\Repositories\UsuarioRepository;
 use App\Models\Setores;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class SetorController extends Controller {
     private $usuarioRepository;
@@ -35,10 +36,18 @@ class SetorController extends Controller {
     public function store(SetorRequest $request) {
         // Salvar um novo setor
 
-        $request->validated();
-        $setor = new Setores($request->all());
-        $setor->save();
-        return redirect()->route('setor.lista')->with('sucesso', 'Setor criado com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $request->validated();
+            $setor = new Setores($request->all());
+            $setor->save();
+            DB::commit();
+            return redirect()->route('adm.setor.lista')->with('sucesso', 'Setor criado com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Erro ao criar novo setor, verifique e tente novamente!');
+        }
     }
 
     public function show($id) {
@@ -57,16 +66,32 @@ class SetorController extends Controller {
     public function update(Request $request, $id) {
         // Atualizar um setor específico
 
-        $setor = Setores::findOrFail($id);
-        $setor->update($request->all());
-        return redirect()->route('setor.lista')->with('sucesso', 'Setor alterado com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $setor = Setores::findOrFail($id);
+            $setor->update($request->all());
+            DB::commit();
+            return redirect()->route('adm.setor.lista')->with('sucesso', 'Setor alterado com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Erro ao atualizar setor, verifique e tente novamente!');
+        }
     }
 
     public function destroy($id) {
         // Deletar um setor específico
 
-        $setor = Setores::findOrFail($id);
-        $setor->delete();
-        return redirect()->route('setor.lista')->with('sucesso', 'Setor deletado do sistema com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $setor = Setores::findOrFail($id);
+            $setor->delete();
+            DB::commit();
+            return redirect()->route('adm.setor.lista')->with('sucesso', 'Setor deletado do sistema com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Erro ao excluir setor, verifique e tente novamente!');
+        }
     }
 }
