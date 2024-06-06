@@ -7,6 +7,10 @@
                 <div class="alert alert-success">
                     <b>{{ session('sucesso') }}</b>
                 </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger">
+                    <b>{{ session('error') }}</b>
+                </div>
             @endif
 
             <h1 style="display: inline-block"><b>Tela inicial de funcionários  <i class="fa-solid fa-users-gear tamanho-icone-usuario"></i></b></h1>

@@ -10,6 +10,7 @@ use App\Models\Cidade;
 use App\Models\Setores;
 use App\Models\Cargo;
 use App\Http\Requests\UsuarioRequest;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController {
     private $usuarioRepository;
@@ -38,11 +39,19 @@ class UsuarioController {
     public function store(UsuarioRequest $request) {
         // Salvar um novo usuário
 
-        $request->validated();
-        $usuario = new User($request->all());
-        $usuario->password = bcrypt($request->password);
-        $usuario->save();
-        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário criado com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $request->validated();
+            $usuario = new User($request->all());
+            $usuario->password = bcrypt($request->password);
+            $usuario->save();
+            DB::commit();
+            return redirect()->route('adm.usuario.lista')->with('sucesso', 'Funcionário criado com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Possível cadastro de funcionário duplicado ou informações incorretas, verifique e tente novamente!');
+        }
     }
 
     public function show($id) {
@@ -63,16 +72,32 @@ class UsuarioController {
     public function update(Request $request, $id) {
         // Atualizar um usuário específico
 
-        $usuario = User::findOrFail($id);
-        $usuario->update($request->all());
-        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário alterado com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $usuario = User::findOrFail($id);
+            $usuario->update($request->all());
+            DB::commit();
+            return redirect()->route('adm.usuario.lista')->with('sucesso', 'Funcionário alterado com sucesso!');
+        }  catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Erro ao atualizar o cadastro do funcionário, verifique e tente novamente!');
+        }
     }
 
     public function destroy($id) {
         // Deletar um usuário específico
 
-        $usuario = User::findOrFail($id);
-        $usuario->delete();
-        return redirect()->route('usuario.lista')->with('sucesso', 'Funcionário deletado do sistema com sucesso!');
+        DB::beginTransaction();
+
+        try {
+            $usuario = User::findOrFail($id);
+            $usuario->delete();
+            DB::commit();
+            return redirect()->route('adm.usuario.lista')->with('sucesso', 'Funcionário deletado do sistema com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Erro ao excluir o cadastro do funcionário, verifique e tente novamente!');
+        }
     }
 }
