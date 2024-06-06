@@ -3,6 +3,7 @@ import '../sass/app.scss';
 import '../css/app.css';
 import $ from 'jquery';
 import '../css/select2-custom.css';
+import '../css/datatable-custom.css';
 
 window.$ = window.jQuery = $;
 

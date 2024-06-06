@@ -1,0 +1,25 @@
+/* Exemplo de CSS personalizado para DataTables */
+table.dataTable thead th {
+    color: white;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #ddd;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #4CAF50;
+    color: white !important;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #45a049;
+}
