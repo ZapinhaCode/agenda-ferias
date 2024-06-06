@@ -38,7 +38,15 @@
 
             <div class="d-flex justify-content-right">
                 <span class="p-1 navbar-text my-auto ms-5 ps-5  fs-5 text-end text-primary-emphasis">Nome</span>
-                <i class="p-1 fa-solid fa-circle-user" style="font-size: 80px;"></i>
+                <div class= "dropup-center dropdown">
+                    <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="p-1 fa-solid fa-circle-user" style="font-size: 80px;"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item text-center" href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a></li>
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

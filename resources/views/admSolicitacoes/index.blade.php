@@ -34,7 +34,7 @@
                         <td class="text-center">
                             <a> <button class="btn btn-success btn-sm" title="Aprovar solicitação"><i class="fa-solid fa-thumbs-up"></i></button></a>
                             <a> <button class="btn btn-danger btn-sm" title="Rejeitar solicitação"><i class="fa-solid fa-thumbs-down"></i></button></a>
-                            <a> <button class="btn btn-secondary btn-sm" title="Sugerir alteração"><i class="fa-solid fa-file-pen"></i></button></a>
+                            <a> <button class="btn btn-warning btn-sm" title="Sugerir alteração"><i class="fa-solid fa-file-pen"></i></button></a>
                         </td>
                 {{-- @else
                     <td class="text-center" colspan="3">Nenhum registro encontrado</td>

@@ -1,0 +1,90 @@
+@import 'tema';
+@import 'variables';
+
+
+.btn-success {
+    background-color: #2bd9a8 !important;
+    border-color: #2bd9a8 !important;     
+    color: #302d40 !important;            
+  
+    &:hover {
+      background-color: darken(#2bd9a8, 10%) !important;
+      border-color: darken(#2bd9a8, 10%) !important;
+    }
+  
+    &:active {
+      background-color: darken(#2bd9a8, 15%) !important;
+      border-color: darken(#2bd9a8, 15%) !important;
+    }
+  }
+
+
+  .btn-danger {
+    background-color: #ff6e6e !important;
+    border-color: #ff6e6e !important;     
+    color: #302d40 !important;            
+  
+    &:hover {
+      background-color: darken(#ff6e6e, 10%) !important;
+      border-color: darken(#ff6e6e, 10%) !important;
+    }
+  
+    &:active {
+      background-color: darken(#ff6e6e, 15%) !important;
+      border-color: darken(#ff6e6e, 15%) !important;
+    }
+  }
+
+  .btn-warning {
+    background-color: #fff879 !important;
+    border-color: #fff879 !important;     
+    color: #302d40 !important;            
+  
+    &:hover {
+      background-color: darken(#fff879, 10%) !important;
+      border-color: darken(#fff879, 10%) !important;
+    }
+  
+    &:active {
+      background-color: darken(#fff879, 15%) !important;
+      border-color: darken(#fff879, 15%) !important;
+    }
+  }
+  .btn-info {
+    background-color: #33cfff !important;
+    border-color: #33cfff !important;     
+    color: #302d40 !important;            
+  
+    &:hover {
+      background-color: darken(#33cfff, 10%) !important;
+      border-color: darken(#33cfff, 10%) !important;
+    }
+  
+    &:active {
+      background-color: darken(#33cfff, 15%) !important;
+      border-color: darken(#33cfff, 15%) !important;
+    }
+  }
+
+  .btn-cadastrar {
+    background-color: #33cfff !important;
+    border-radius: 50px;
+    border-color: #33cfff !important;     
+    color: #302d40 !important;            
+    
+    &:hover {
+      background-color: darken(#33cfff, 10%) !important;
+      border-color: darken(#33cfff, 10%) !important;
+    }
+  
+    &:active {
+      background-color: darken(#33cfff, 15%) !important;
+      border-color: darken(#33cfff, 15%) !important;
+    }
+  }
+
+
+
+  
+
+

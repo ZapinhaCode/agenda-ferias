@@ -2,7 +2,7 @@
 
 
 $prefix: 'bs-';
-
+$tertiary-color: var(--#{$prefix}tertiary-color);
 // Body
 $body-bg: #f8fafc;
 
@@ -18,10 +18,11 @@ $navbar-toggler-border-radius: '50px';
 
 
 //inputs
-//$input-color:         #2490fc;
+$input-color: var(--#{$prefix}tertiary-color);
 $input-focus-border-color: var(--#{$prefix}tertiary-color);
 $input-focus-color: var(--#{$prefix}tertiary-color);
 $input-placeholder-color: var(--#{$prefix}tertiary-color);
 $input-border-color: var(--#{$prefix}border-color);
 $input-bg: var(--#{$prefix}tertiary-bg);
+
 

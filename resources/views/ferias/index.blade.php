@@ -13,7 +13,7 @@
 
         <div class="alinha-botao-direita">
             <a href="{{ route('ferias.adicionar') }}">
-                <button class="btn btn-effect-ripple btn-outline-secondary btn-lg botao-cadastro" type="button">
+                <button class="btn btn-effect-ripple btn-cadastrar btn-lg" type="button">
                     <i class="fa-regular fa-calendar-plus" style="font-size: 21px"></i> Cadastrar
                 </button>
             </a>
