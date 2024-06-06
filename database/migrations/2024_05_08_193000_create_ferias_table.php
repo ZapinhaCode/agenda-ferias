@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->index('user_id_foreign')->nullable();
             $table->string('titulo');
-            $table->string('observacao');
+            $table->string('observacao')->nullable();
             $table->date('data_inicio');
             $table->date('data_retorno');
-            $table->string('local_ferias');
-            $table->enum('status', ['aprovado', 'pendente', 'recusado']);
+            $table->string('local_ferias')->nullable();
+            $table->enum('status', ['aprovado', 'pendente', 'recusado'])->nullable();
             $table->unsignedBigInteger('user_autorizacao_id')->nullable()->index('user_autorizacao_id_foreign');
             $table->timestamps();
         });

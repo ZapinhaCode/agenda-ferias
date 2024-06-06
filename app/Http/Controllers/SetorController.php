@@ -63,12 +63,13 @@ class SetorController extends Controller {
         return view('setor.alterar', compact('setor', 'gerentes'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(SetorRequest $request, $id) {
         // Atualizar um setor específico
 
         DB::beginTransaction();
 
         try {
+            $request->validated();
             $setor = Setores::findOrFail($id);
             $setor->update($request->all());
             DB::commit();

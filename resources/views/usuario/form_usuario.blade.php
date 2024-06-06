@@ -67,7 +67,7 @@
             <input type="tel" onkeyup="handlePhone(event)" maxlength="15" placeholder="Digite o telefone (DDD) primeiro" class="form-control form-control-lg" name="telefone" value="{{ isset($usuario) ? $usuario->telefone : old('telefone') }}">
             @error('telefone')
                 <div class="text-danger">{{ $message }}</div>
-            @enderror        
+            @enderror
         </div>
 
         <div class="col-sm-4">
@@ -128,7 +128,7 @@
     <div class="form-group row">
         <div class="col-sm-6">
             <label for="complemento"><b>Complemento  <i class="fa-solid fa-pen-clip"></i></b></label>
-            <input type="text" class="form-control form-control-lg" placeholder="Digite um complemento do seu endereço caso precise" name="complemento" value="{{ isset($usuario) ? $usuario->complemento : old('complemento') }}">
+            <input type="text" class="form-control form-control-lg" placeholder="Digite um complemento do seu endereço (opcional)" name="complemento" value="{{ isset($usuario) ? $usuario->complemento : old('complemento') }}">
             @error('complemento')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

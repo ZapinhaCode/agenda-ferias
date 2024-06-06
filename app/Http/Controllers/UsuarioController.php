@@ -69,12 +69,13 @@ class UsuarioController {
         return view('usuario.alterar', compact('usuario', 'cargos', 'setores', 'estados', 'cidades',));
     }
 
-    public function update(Request $request, $id) {
+    public function update(UsuarioRequest $request, $id) {
         // Atualizar um usuário específico
 
         DB::beginTransaction();
 
         try {
+            $request->validated();
             $usuario = User::findOrFail($id);
             $usuario->update($request->all());
             DB::commit();
