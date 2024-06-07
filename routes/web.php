@@ -6,7 +6,7 @@ use App\Http\Controllers\FeriasController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
 
-Route::get('/login', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
