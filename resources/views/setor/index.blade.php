@@ -44,9 +44,19 @@
                                 <td class="text-center">{{ $setor->gerente->nome }}</td>
                                 <td class="text-center">{{ $setor->created_at }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('adm.setor.editar', $setor->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                    <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                    <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST">
+                                    <a href="{{ route('adm.setor.editar', $setor->id) }}" class="d-inline-block">
+                                        <button class="btn btn-success btn-sm" title="Editar">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                    </a>
+
+                                    <a class="d-inline-block">
+                                        <button class="btn btn-info btn-sm" title="Detalhes">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </button>
+                                    </a>
+
+                                    <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm" title="Excluir">

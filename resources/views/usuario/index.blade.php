@@ -31,9 +31,9 @@
                         <th class="text-center" width="20%">Nome do Funcionário</th>
                         <th class="text-center" width="20%">CPF</th>
                         <th class="text-center" width="13%">Telefone</th>
-                        <th class="text-center" width="13%">Cargo</th>
-                        <th class="text-center" width="14%">Setor</th>
-                        <th class="text-center" width="20%">Ações</th>
+                        <th class="text-center" width="15%">Cargo</th>
+                        <th class="text-center" width="19%">Setor</th>
+                        <th class="text-center" width="13%">Ações</th>
                     </tr>
                 </thead>
                 
@@ -47,9 +47,19 @@
                                 <td class="text-center">{{ $usuario->cargo->nome }}</td>
                                 <td class="text-center">{{ isset($usuario->setor) ? $usuario->setor->nome : 'Nenhum setor cadastrado' }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('adm.usuario.editar', $usuario->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                    <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a> 
-                                    <form action="{{ route('adm.usuario.excluir', $usuario->id) }}" method="POST">
+                                    <a href="{{ route('adm.usuario.editar', $usuario->id) }}" class="d-inline-block">
+                                        <button class="btn btn-success btn-sm" title="Editar">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                    </a>
+
+                                    <a class="d-inline-block">
+                                        <button class="btn btn-info btn-sm" title="Detalhes">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </button>
+                                    </a>
+
+                                    <form action="{{ route('adm.usuario.excluir', $usuario->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm" title="Excluir">

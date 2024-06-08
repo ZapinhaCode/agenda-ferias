@@ -48,10 +48,25 @@
                         <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : $feria->status }}</td>
                         <td class="text-center">{{ is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome }}</td>
                         <td class="text-center">
-                            <a> <button class="btn btn-warning btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button></a>
-                            <a href="{{ route('ferias.editar', $feria->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                            <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a>
-                            <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST">
+                            <a class="d-inline-block">
+                                <button class="btn btn-warning btn-sm" title="Enviar solicitação">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </a>
+
+                            <a href="{{ route('ferias.editar', $feria->id) }}" class="d-inline-block">
+                                <button class="btn btn-success btn-sm" title="Editar">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                            </a>
+
+                            <a class="d-inline-block">
+                                <button class="btn btn-info btn-sm" title="Detalhes">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                </button>
+                            </a>
+
+                            <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger btn-sm" title="Excluir">
