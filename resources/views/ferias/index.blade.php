@@ -34,26 +34,35 @@
                     <th class="text-center" width="15%">Data de início</th>
                     <th class="text-center" width="15%">Data de retorno</th>
                     <th class="text-center" width="15%">Status</th>
-                    <th class="text-center" width="20%">Responsável</th>
+                    <th class="text-center" width="20%">Responsável pela aprovação</th>
                     <th class="text-center" width="15%">Ações</th>
                 </tr>
             </thead>
 
             <tbody>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                @if (!empty($ferias))
+                    @foreach ($ferias as $feria)
+                        <td class="text-center">{{ $feria->titulo }}</td>
+                        <td class="text-center">{{ $feria->data_inicio }}</td>
+                        <td class="text-center">{{ $feria->data_retorno }}</td>
+                        <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : $feria->status }}</td>
+                        <td class="text-center">{{ is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome }}</td>
                         <td class="text-center">
                             <a> <button class="btn btn-warning btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button></a>
-                            <a href="#"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                            <a href="{{ route('ferias.editar', $feria->id) }}"><button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button></a>
                             <a> <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button></a>
-                            <a> <button class="btn btn-danger btn-sm" title="Excluir"><i class="fa-solid fa-circle-xmark"></i></i></button></a>
+                            <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm" title="Excluir">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </button>
+                            </form>
                         </td>
-                {{-- @else
-                    <td class="text-center" colspan="3">Nenhum registro encontrado</td>
-                @endif --}}
+                    @endforeach
+                @else
+                    <td class="text-center" colspan="5">Nenhum registro encontrado</td>
+                @endif
             </tbody>
         </table>
     </div>

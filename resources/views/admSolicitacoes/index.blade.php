@@ -27,18 +27,21 @@
             </thead>
 
             <tbody>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                @if (!empty($ferias))
+                    @foreach ($ferias as $feria)
+                        <td class="text-center">{{ $feria->titulo }}</td>
+                        <td class="text-center">{{ $feria->data_inicio }}</td>
+                        <td class="text-center">{{ $feria->data_retorno }}</td>
+                        <td class="text-center">{{ $feria->status }}</td>
                         <td class="text-center">
                             <a> <button class="btn btn-success btn-sm" title="Aprovar solicitação"><i class="fa-solid fa-thumbs-up"></i></button></a>
                             <a> <button class="btn btn-danger btn-sm" title="Rejeitar solicitação"><i class="fa-solid fa-thumbs-down"></i></button></a>
                             <a> <button class="btn btn-warning btn-sm" title="Sugerir alteração"><i class="fa-solid fa-file-pen"></i></button></a>
                         </td>
-                {{-- @else
+                    @endforeach
+                @else
                     <td class="text-center" colspan="3">Nenhum registro encontrado</td>
-                @endif --}}
+                @endif
             </tbody>
         </table>
     </div>

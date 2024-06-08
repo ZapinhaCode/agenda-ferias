@@ -11,7 +11,7 @@
         @endif
 
         <div class="container-md">
-            <form action="{{ route('ferias.atualizar', $feria->id) }}" method="POST">
+            <form action="{{ route('ferias.atualizar', $ferias->id) }}" method="POST">
                 @method('PUT')
                 @csrf
                 @include('ferias.form_ferias')

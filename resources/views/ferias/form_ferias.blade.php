@@ -9,9 +9,9 @@
         </div>
 
         <div class="col-sm-5">
-            <label for="cpf"><b>Local para as férias  <i class="fa-solid fa-map-location-dot"></i></b></label>
-            <input type="text" placeholder="Digite o local onde passará as suas férias (opcional)" class="form-control form-control-lg" name="cpf" value="{{ isset($usuario) ? $usuario->cpf : old('cpf') }}">
-            @error('cpf')
+            <label for="local_ferias"><b>Local para as férias  <i class="fa-solid fa-map-location-dot"></i></b></label>
+            <input type="text" placeholder="Digite o local onde passará as suas férias (opcional)" class="form-control form-control-lg" name="local_ferias" value="{{ isset($ferias) ? $ferias->local_ferias : old('local_ferias') }}">
+            @error('local_ferias')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -36,7 +36,7 @@
 
         <div class="col-sm-6">
             <label for="observacao"><b>Observação  <i class="fa-solid fa-file-circle-plus"></i></b></label>
-            <textarea class="form-control form-control-lg" name="observacao" placeholder="Digite alguma observação referente ao seu pedido (opcional)"></textarea>
+            <input type="text" class="form-control form-control-lg" name="observacao" placeholder="Digite alguma observação referente ao seu pedido (opcional)" value="{{ isset($ferias) ? $ferias->observacao : old('observacao') }}" ></input>
             @error('observacao')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

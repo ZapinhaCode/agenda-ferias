@@ -6,14 +6,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FeriasRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ferias;
+use App\Repositories\FeriasRepository;
 
 class FeriasController extends Controller
 {
+    private $feriasRepository;
+
+    public function __construct(FeriasRepository $feriasRepository) {
+        $this->feriasRepository = $feriasRepository;
+    }
+
     public function index() {
         // Mostra a tela inicial dos usuarios
 
-        // $usuarios = $this->usuarioRepository->all();
-        return view('ferias.index');
+        $ferias = $this->feriasRepository->minhasSolicitacoes();
+        return view('ferias.index', compact('ferias'));
     }
 
     public function create() {
@@ -24,13 +31,12 @@ class FeriasController extends Controller
 
     public function store(FeriasRequest $request) {
         // Grava no banco as ferias
-
         DB::beginTransaction();
 
         try {
             $request->validated();
             $ferias = new Ferias($request->all());
-            // Salvar qual usuário requeriu as ferias
+            $ferias->user_id = auth()->user()->id;            
             $ferias->save();
             DB::commit();
             return redirect()->route('ferias.lista')->with('sucesso', 'Férias criada com sucesso!');
@@ -44,14 +50,16 @@ class FeriasController extends Controller
         // Mostra uma ferias específica
     }
 
-    public function edit() {
+    public function edit($id) {
         // Mostrar formulário para editar uma ferias
 
-        return view('ferias.alterar');
+        $ferias = Ferias::findOrFail($id);
+        return view('ferias.alterar', compact('ferias'));
     }
 
     public function update(FeriasRequest $request, $id) {
         // Atualiza uma ferias no banco de dados
+
         DB::beginTransaction();
 
         try {
@@ -85,6 +93,7 @@ class FeriasController extends Controller
     public function admSolicitacoes() {
         // Verifica adm as solicitacoes
 
-        return view('admSolicitacoes.index');
+        $ferias = $this->feriasRepository->solicitacoesAdministrativa();
+        return view('admSolicitacoes.index', compact('ferias'));
     }
 }
