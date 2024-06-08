@@ -3,6 +3,7 @@
 
 $prefix: 'bs-';
 $tertiary-color: var(--#{$prefix}tertiary-color);
+
 // Body
 $body-bg: #f8fafc;
 
@@ -25,4 +26,10 @@ $input-placeholder-color: var(--#{$prefix}tertiary-color);
 $input-border-color: var(--#{$prefix}border-color);
 $input-bg: var(--#{$prefix}tertiary-bg);
 
+//check
+$form-check-input-bg: var(--#{$prefix}tertiary-bg);
 
+$form-check-input-checked-bg-color: var(--#{$prefix}tertiary-color);
+$form-check-input-checked-color: var(--#{$prefix}tertiary-bg);
+$form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#302d40' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+$form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#302d40'/></svg>");
