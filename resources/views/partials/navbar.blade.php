@@ -42,8 +42,14 @@
                     <button class="btn flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="p-1 fa-solid fa-circle-user" style="font-size: 80px;"></i>
                     </button>
+
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item text-center" href="#">Meu perfil <i class="fa-solid fa-user"></i></a></li>
+                        @if (!is_null(auth()->user()))
+                            <li>
+                                <a class="dropdown-item text-center" href="{{ route('usuario.visualizaMeuPerfil', auth()->user()->id) }}">Meu perfil <i class="fa-solid fa-user"></i></a>
+                            </li>
+                        @endif
+
                         <li>
                             <a class="dropdown-item text-center" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

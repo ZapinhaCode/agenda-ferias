@@ -101,4 +101,9 @@ class UsuarioController {
             return redirect()->back()->with('error', 'Erro ao excluir o cadastro do funcionário, verifique e tente novamente!');
         }
     }
+
+    public function visualizaMeuPerfil($id) {
+        $usuario = User::findOrFail($id);
+        return view('usuario.meuPerfil', compact('usuario'));
+    }
 }
