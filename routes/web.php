@@ -16,6 +16,8 @@ Route::get('/inicial', function () {
 
 Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
 
+Route::get('/ferias/calendario', [FeriasController::class , 'getCalendario'])->name('ferias.calendario');
+
 Route::get('/meuPerfil/{id}', [UsuarioController::class, 'visualizaMeuPerfil'])->name('usuario.visualizaMeuPerfil');
 
 Route::resource('adm/usuario', UsuarioController::class)->names([

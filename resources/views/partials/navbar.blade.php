@@ -16,7 +16,7 @@
                 </li>
 
                 <li class="nav-item px-2 mx-3 col-md-auto">
-                    <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="#"><i class="fa-regular fa-calendar-days" style="font-size: 20px"></i>  Calendário</a>
+                    <a class="nav-link ps-5 fs-4 text-primary-emphasis" href="{{ route('ferias.calendario') }}"><i class="fa-regular fa-calendar-days" style="font-size: 20px"></i>  Calendário</a>
                 </li>
 
                 <li class="nav-item px-2 mx-3 col-md-auto">

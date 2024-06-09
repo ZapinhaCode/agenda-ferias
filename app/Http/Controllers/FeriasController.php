@@ -96,4 +96,11 @@ class FeriasController extends Controller
         $ferias = $this->feriasRepository->solicitacoesAdministrativa();
         return view('admSolicitacoes.index', compact('ferias'));
     }
+
+    public function getCalendario() {
+        // Mostrar caso o funcionario n for ADM apenas suas ferias
+        // Se caso for ADM mostra todas e se Gestor mostra apenas usuario com vinculo no setor
+
+        return view('calendario.telaCalendario');
+    }
 }
