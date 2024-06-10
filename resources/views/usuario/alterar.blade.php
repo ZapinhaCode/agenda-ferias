@@ -10,7 +10,7 @@
             </div>
         @endif
 
-        <div class="form-control">
+        <div class="container">
             <form action="{{ route('adm.usuario.atualizar', $usuario->id) }}" method="POST">
                 @method('PUT')
                 @csrf
