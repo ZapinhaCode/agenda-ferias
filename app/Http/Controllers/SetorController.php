@@ -52,9 +52,6 @@ class SetorController extends Controller {
 
     public function show($id) {
         // Mostrar um setor específico
-        $setor = Setores::findOrFail($id);
-        $gerentes = $this->usuarioRepository->listaGerente();
-        return view('setor.detalhesSetor', compact('setor', 'gerentes'));
     }
 
     public function edit($id) {

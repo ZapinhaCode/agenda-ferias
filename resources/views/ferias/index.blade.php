@@ -63,7 +63,7 @@
                                         <button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
 
-                                    <a href="{{ route('ferias.mostrar', $feria->id) }}" class="d-inline-block">
+                                    <a class="d-inline-block">
                                         <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button>
                                     </a>
 

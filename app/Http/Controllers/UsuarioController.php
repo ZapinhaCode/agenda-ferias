@@ -61,7 +61,7 @@ class UsuarioController {
         $setores = Setores::all();
         $estados = Estado::all();
         $cidades = Cidade::all();
-        return view('usuario.detalhesUsuario', compact('cargos', 'setores', 'estados', 'cidades'));
+        return view('usuario.detalhesUsuario', compact('usuario', 'cargos', 'setores', 'estados', 'cidades'));
     }
 
     public function edit($id) {
@@ -110,6 +110,10 @@ class UsuarioController {
 
     public function visualizaMeuPerfil($id) {
         $usuario = User::findOrFail($id);
-        return view('usuario.meuPerfil', compact('usuario'));
+        $cargos = Cargo::all();
+        $setores = Setores::all();
+        $estados = Estado::all();
+        $cidades = Cidade::all();
+        return view('usuario.detalhesUsuario', compact('usuario', 'cargos', 'setores', 'estados', 'cidades'));
     }
 }

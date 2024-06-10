@@ -47,8 +47,6 @@ class FeriasController extends Controller
 
     public function show($id) {
         // Mostra uma ferias específica
-        $ferias = Ferias::findOrFail($id);
-        return view('ferias.detalhesFerias', compact('ferias'));
     }
 
     public function edit($id) {

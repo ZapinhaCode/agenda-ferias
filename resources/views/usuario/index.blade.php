@@ -14,6 +14,7 @@
             @endif
 
             <h1 style="display: inline-block"><b>Tela inicial de funcionários  <i class="fa-solid fa-users-gear tamanho-icone-usuario"></i></b></h1>
+
             <div class="alinha-botao-direita">
                 <a href="{{ route('adm.usuario.adicionar') }}">
                     <button class="btn btn-effect-ripple btn-cadastrar btn-lg" type="button">
