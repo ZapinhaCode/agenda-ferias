@@ -36,10 +36,17 @@
 
         <div class="col-sm-6">
             <label for="observacao"><b>Observação  <i class="fa-solid fa-file-circle-plus"></i></b></label>
-            <input type="text" class="form-control form-control-lg" name="observacao" placeholder="Digite alguma observação referente ao seu pedido (opcional)" value="{{ isset($ferias) ? $ferias->observacao : old('observacao') }}" ></input>
+            <input type="text" class="form-control form-control-lg" name="observacao" placeholder="Digite alguma observação referente ao seu pedido (opcional)" value="{{ isset($ferias) ? $ferias->observacao : old('observacao') }}"></input>
             @error('observacao')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-4">
+            <label for="ferias_cor"><b>Cor para marcar suas férias  <i class="fa-solid fa-palette"></i></b></label>
+            <input class="form-control form-control-lg" type="color" name="ferias_cor" value="{{ isset($ferias) ? $ferias->ferias_cor : old('ferias_cor') }}">
         </div>
     </div>
 

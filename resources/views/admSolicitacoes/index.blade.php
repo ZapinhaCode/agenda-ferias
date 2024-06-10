@@ -1,6 +1,10 @@
 @extends('layout.app')
 
 @section('content')
+    @php
+        use Carbon\Carbon;
+    @endphp
+
     <div class="container-md">
         <div class="container-fluid">
             @if(session('sucesso'))
@@ -35,9 +39,9 @@
                         @foreach ($ferias as $feria)
                             <tr>
                                 <td class="text-center">{{ $feria->titulo }}</td>
-                                <td class="text-center">{{ $feria->data_inicio }}</td>
-                                <td class="text-center">{{ $feria->data_retorno }}</td>
-                                <td class="text-center">{{ $feria->status }}</td>
+                                <td class="text-center">{{ Carbon::parse($feria->data_inicio)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ Carbon::parse($feria->data_retorno)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ ucfirst(strtolower($feria->status)) }}</td>
                                 <td class="text-center">
                                     <a><button class="btn btn-info btn-sm" title="Visualizar férias"><i class="fa-solid fa-eye"></i></button></a>
 

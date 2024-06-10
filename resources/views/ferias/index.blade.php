@@ -1,6 +1,10 @@
 @extends('layout.app')
 
 @section('content')
+    @php
+        use Carbon\Carbon;
+    @endphp
+
     <div class="container-md">
         <div class="container-fluid">
             @if(session('sucesso'))
@@ -44,9 +48,9 @@
                         @foreach ($ferias as $feria)
                             <tr>
                                 <td class="text-center">{{ $feria->titulo }}</td>
-                                <td class="text-center">{{ $feria->data_inicio }}</td>
-                                <td class="text-center">{{ $feria->data_retorno }}</td>
-                                <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : $feria->status }}</td>
+                                <td class="text-center">{{ Carbon::parse($feria->data_inicio)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ Carbon::parse($feria->data_retorno)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : ucfirst(strtolower($feria->status)) }}</td>
                                 <td class="text-center">{{ is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('ferias.enviaSolicitacao', $feria->id) }}" method="POST" class="d-inline">

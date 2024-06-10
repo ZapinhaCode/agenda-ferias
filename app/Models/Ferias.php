@@ -22,6 +22,7 @@ class Ferias extends Authenticatable
         'local_ferias',
         'status',
         'user_autorizacao_id',
+        'ferias_cor'
     ];
 
     public function usuario() {
@@ -30,21 +31,5 @@ class Ferias extends Authenticatable
 
     public function usuarioAutoriza() {
         return $this->belongsTo(User::class, 'user_autorizacao_id');
-    }
-
-    public function getDataInicioAttribute($value) {
-        if (strlen($value) > 0) {
-            return (new Carbon($this->attributes['data_inicio']))->format('d/m/Y');
-        } else {
-            return null;
-        }
-    }
-
-    public function getDataRetornoAttribute($value) {
-        if (strlen($value) > 0) {
-            return (new Carbon($this->attributes['data_retorno']))->format('d/m/Y');
-        } else {
-            return null;
-        }
     }
 }

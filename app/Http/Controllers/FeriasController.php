@@ -133,11 +133,11 @@ class FeriasController extends Controller
             $montaArrayCalendario[] = [
                 'id' => $feria->id,
                 'title' => $feria->titulo, 
-                'start' => Carbon::createFromFormat('d/m/Y', $feria->data_inicio)->format('Y-m-d'), 
-                'end' => Carbon::createFromFormat('d/m/Y', $feria->data_retorno)->format('Y-m-d'),
+                'start' => $feria->data_inicio,
+                'end' => $feria->data_retorno,
                 'observacao'=> $feria->observacao,
                 'allDay' => true,
-                "backgroundColor" => "#28A745",
+                "backgroundColor" => $feria->ferias_cor,
                 "textColor" => "#FFFFFF",
                 "localizacao" => $feria->local_ferias
             ];
