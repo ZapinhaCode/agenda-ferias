@@ -15,8 +15,11 @@ Route::get('/inicial', function () {
 });
 
 Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
+Route::put('adm/ferias/aprovaSolicitacao/{id}', [FeriasController::class, 'aprovaSolicitacao'])->name('adm.ferias.aprovaSolicitacao');
+Route::put('adm/ferias/recusaSolicitacao/{id}', [FeriasController::class, 'negaSolicitacao'])->name('adm.ferias.recusaSolicitacao');
 
 Route::get('/ferias/calendario', [FeriasController::class , 'getCalendario'])->name('ferias.calendario');
+Route::put('ferias/enviaSolicitacao/{id}', [FeriasController::class, 'enviaSolicitacao'])->name('ferias.enviaSolicitacao');
 
 Route::get('/meuPerfil/{id}', [UsuarioController::class, 'visualizaMeuPerfil'])->name('usuario.visualizaMeuPerfil');
 

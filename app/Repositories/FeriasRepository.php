@@ -25,4 +25,34 @@ class FeriasRepository {
             ->where('user_autorizacao_id', null)
             ->get();
     }
+
+    public function feriasPermissaoAdminstrador() {
+        return $this->model->newQuery()
+            ->where('enviado_solicitacao', 1)
+            ->whereNotNull('user_autorizacao_id')
+            ->where('status', 'aprovado')
+            ->get();
+    }
+
+    public function feriasPermissaoGestor() {
+        return $this->model->newQuery()
+            ->leftJoin('usuario', 'ferias.user_id', 'usuario.id')
+            ->leftJoin('cargo', 'usuario.cargo_id', 'cargo.id')
+            ->where('cargo.permissao', 'gestor')
+            ->where('usuario.cargo_id', auth()->user()->cargo->id)
+            ->where('enviado_solicitacao', 1)
+            ->where('ferias.status', 'aprovado')
+            ->whereNotNull('user_autorizacao_id')
+            ->select('ferias.*')
+            ->get();
+    }
+
+    public function feriasPermissaoFuncionario() {
+        return $this->model->newQuery()
+            ->where('enviado_solicitacao', 1)
+            ->where('user_id', auth()->user()->id)
+            ->where('status', 'aprovado')
+            ->whereNotNull('user_autorizacao_id')
+            ->get();
+    }
 }

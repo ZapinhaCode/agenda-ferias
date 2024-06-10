@@ -7,6 +7,7 @@ use App\Http\Requests\FeriasRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ferias;
 use App\Repositories\FeriasRepository;
+use Carbon\Carbon;
 
 class FeriasController extends Controller
 {
@@ -90,6 +91,25 @@ class FeriasController extends Controller
         }
     }
 
+    public function enviaSolicitacao($id) {
+        // Colocar o enviado_solicitacao = 1
+        // Colocar o status = pendente
+
+        DB::beginTransaction();
+
+        try {
+            $ferias = Ferias::findOrFail($id);
+            $ferias->enviado_solicitacao = 1;
+            $ferias->status = 'pendente';
+            $ferias->update();
+            DB::commit();
+            return redirect()->route('ferias.lista')->with('sucesso', 'Férias enviadas para análise, a resposta sobre a solicitação será enviada por e-mail!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
     public function admSolicitacoes() {
         // Verifica adm as solicitacoes
 
@@ -98,9 +118,71 @@ class FeriasController extends Controller
     }
 
     public function getCalendario() {
-        // Mostrar caso o funcionario n for ADM apenas suas ferias
-        // Se caso for ADM mostra todas e se Gestor mostra apenas usuario com vinculo no setor
+        $ferias = null;
+        $montaArrayCalendario = [];
 
-        return view('calendario.telaCalendario');
+        if (auth()->user()->cargo->permissao == 'administrador') {
+            $ferias = $this->feriasRepository->feriasPermissaoAdminstrador();
+        } else if (auth()->user()->cargo->permissao == 'funcionario') {
+            $ferias = $this->feriasRepository->feriasPermissaoFuncionario();
+        } else {
+            $ferias = $this->feriasRepository->feriasPermissaoGestor();
+        }
+
+        foreach ($ferias as $feria) {
+            $montaArrayCalendario[] = [
+                'id' => $feria->id,
+                'title' => $feria->titulo, 
+                'start' => Carbon::createFromFormat('d/m/Y', $feria->data_inicio)->format('Y-m-d'), 
+                'end' => Carbon::createFromFormat('d/m/Y', $feria->data_retorno)->format('Y-m-d'),
+                'observacao'=> $feria->observacao,
+                'allDay' => true,
+                "backgroundColor" => "#28A745",
+                "textColor" => "#FFFFFF",
+                "localizacao" => $feria->local_ferias
+            ];
+        }
+
+        return view('calendario.telaCalendario', compact('montaArrayCalendario'));
+    }
+
+    public function aprovaSolicitacao($id) {
+        // status = aprovado e manda para exibir no calendario
+
+        DB::beginTransaction();
+
+        try {
+            $ferias = Ferias::findOrFail($id);
+            $ferias->status = 'aprovado';
+            $ferias->user_autorizacao_id = auth()->user()->id;
+            $ferias->update();
+            DB::commit();
+            return redirect()->route('adm.ferias.solicitacoes')->with('sucesso', 'Férias aprovadas com sucesso, e-mail enviado para o funcionário!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function negaSolicitacao($id) {
+        // status = negado e manda um email explicando o porque
+
+        DB::beginTransaction();
+
+        try {
+            $ferias = Ferias::findOrFail($id);
+            $ferias->status = 'recusado';
+            $ferias->user_autorizacao_id = auth()->user()->id;
+            $ferias->update();
+            DB::commit();
+            return redirect()->route('adm.ferias.solicitacoes')->with('sucesso', 'Férias recusada, e-mail enviado para o funcionário!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function sugereAlteracaoSolicitacao($id) {
+        // status = pendente e manda um email sobre a sugestao
     }
 }
