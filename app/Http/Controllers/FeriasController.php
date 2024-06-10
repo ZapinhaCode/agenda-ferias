@@ -19,14 +19,12 @@ class FeriasController extends Controller
 
     public function index() {
         // Mostra a tela inicial dos usuarios
-
         $ferias = $this->feriasRepository->minhasSolicitacoes();
         return view('ferias.index', compact('ferias'));
     }
 
     public function create() {
         // Mostra a tela para criar as ferias
-
         return view('ferias.adicionar');
     }
 
@@ -47,20 +45,20 @@ class FeriasController extends Controller
         }
     }
 
-    public function show() {
+    public function show($id) {
         // Mostra uma ferias específica
+        $ferias = Ferias::findOrFail($id);
+        return view('ferias.detalhesFerias', compact('ferias'));
     }
 
     public function edit($id) {
         // Mostrar formulário para editar uma ferias
-
         $ferias = Ferias::findOrFail($id);
         return view('ferias.alterar', compact('ferias'));
     }
 
     public function update(FeriasRequest $request, $id) {
         // Atualiza uma ferias no banco de dados
-
         DB::beginTransaction();
 
         try {

@@ -56,6 +56,12 @@ class UsuarioController {
 
     public function show($id) {
         // Mostrar um usuário específico
+        $usuario = User::findOrFail($id);
+        $cargos = Cargo::all();
+        $setores = Setores::all();
+        $estados = Estado::all();
+        $cidades = Cidade::all();
+        return view('usuario.detalhesUsuario', compact('cargos', 'setores', 'estados', 'cidades'));
     }
 
     public function edit($id) {

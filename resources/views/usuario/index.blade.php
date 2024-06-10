@@ -53,7 +53,7 @@
                                         </button>
                                     </a>
 
-                                    <a class="d-inline-block">
+                                    <a class="d-inline-block" href="{{ route('adm.usuario.mostrar', $usuario->id) }}">
                                         <button class="btn btn-info btn-sm" title="Detalhes">
                                             <i class="fa-solid fa-circle-exclamation"></i>
                                         </button>

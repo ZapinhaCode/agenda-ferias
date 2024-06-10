@@ -50,7 +50,7 @@
                                         </button>
                                     </a>
 
-                                    <a class="d-inline-block">
+                                    <a href="{{ route('adm.setor.mostrar', $setor->id) }}" class="d-inline-block">
                                         <button class="btn btn-info btn-sm" title="Detalhes">
                                             <i class="fa-solid fa-circle-exclamation"></i>
                                         </button>
