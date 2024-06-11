@@ -2,6 +2,13 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+
+
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
+
+
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
@@ -10,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (calendarEl) {
         var calendar = new Calendar(calendarEl, {
-            plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
+            plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, bootstrap5Plugin ],
+            themeSystem: 'bootstrap5',
             initialView: 'dayGridMonth',
             locale: 'pt-br',
             timeZone: 'America/Sao_Paulo',

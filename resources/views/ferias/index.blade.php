@@ -56,11 +56,11 @@
                                     <form action="{{ route('ferias.enviaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('PUT')
-                                        <button class="btn btn-warning btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button>
+                                        <button class="btn btn-success btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button>
                                     </form>
 
                                     <a href="{{ route('ferias.editar', $feria->id) }}" class="d-inline-block">
-                                        <button class="btn btn-success btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-warning btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
 
                                     <a class="d-inline-block">

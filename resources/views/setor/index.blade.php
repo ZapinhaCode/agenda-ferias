@@ -45,7 +45,7 @@
                                 <td class="text-center">{{ $setor->created_at }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('adm.setor.editar', $setor->id) }}" class="d-inline-block">
-                                        <button class="btn btn-success btn-sm" title="Editar">
+                                        <button class="btn btn-warning btn-sm" title="Editar">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
                                     </a>

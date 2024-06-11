@@ -5,7 +5,8 @@ import $ from 'jquery';
 import '../css/select2-custom.css';
 import '../css/datatable-custom.css';
 import '../js/calendario.js';
-import '../css/calendario-custom.css';
+
+
 window.$ = window.jQuery = $;
 
 $(function () {
@@ -13,3 +14,5 @@ $(function () {
         theme: 'bootstrap-5',
     });
 });
+
+

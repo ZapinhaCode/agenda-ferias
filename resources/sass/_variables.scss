@@ -1,5 +1,8 @@
 @import 'tema';
 
+//colors
+$primary: #a7f2ba;
+
 
 $prefix: 'bs-';
 $tertiary-color: var(--#{$prefix}tertiary-color);
@@ -33,3 +36,80 @@ $form-check-input-checked-bg-color: var(--#{$prefix}tertiary-color);
 $form-check-input-checked-color: var(--#{$prefix}tertiary-bg);
 $form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#302d40' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
 $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#302d40'/></svg>");
+
+
+.fc-theme-bootstrap5 .fc-scrollgrid, .fc-theme-bootstrap5 td{
+    border-style: none !important;
+    padding: 5px; 
+}
+.fc-theme-bootstrap5 th{
+    border-style: none !important;
+    background-color: #a7f2ba;
+    border-radius: 20px;
+
+}
+.fc-col-header-cell-cushion{
+    color: #302d40!important; 
+
+}
+
+
+.table, .fc-scrollgrid, .fc-scrollgrid-liquid, .fc-dayGridMonth-view{
+    border-collapse: separate !important;
+    border-spacing: 5px !important;
+
+}
+
+
+.fc{
+
+
+
+.fc-highlight{
+
+    border-radius: 20px;
+    background: #a7f2ba50;
+}
+.fc-daygrid-bg-harness{
+   
+    border-radius: 20px;
+    background-color: #a7f2ba50;
+}
+
+
+
+
+  .fc-daygrid-day-number{ 
+    color: #ffffff;
+    text-decoration: none !important;
+
+  }
+
+  
+  .fc-day{
+    border-radius: 20px;
+    color: #ffffff;
+   
+  }
+  
+
+  .fc-daygrid-day-frame{
+    color: #ffffff;
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+  }
+  .fc-day-today {
+    background-color: transparent  !important; /* Altere para a cor desejada */
+
+}
+.fc-day-today .fc-daygrid-day-number{
+    background-color: $tertiary-color !important; /* Altere para a cor desejada */
+    color: #302d40;
+    border-radius: 50%; /* Torna o elemento redondo */
+    width: 30px; /* Largura desejada */
+    height: 30px; /* Altura desejada */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    display: inline-block; /* Necessário para aplicar largura e altura */
+}
+}

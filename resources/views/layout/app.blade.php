@@ -11,11 +11,14 @@
     </head>
 
     <body>
+        
         <div id="app">
+            @include('partials.modalFerias')
             <div class="bg-image"></div>
             <div class="content">
                 @include('partials.navbar') <!-- Inclui a view parcial do menu -->
                 <div class="container-md bg-dark object-fit-fill border rounded pt-4">
+                    
                     @yield('content')
                 </div>
             </div>

@@ -49,7 +49,7 @@
                                 <td class="text-center">{{ isset($usuario->setor) ? $usuario->setor->nome : 'Nenhum setor cadastrado' }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('adm.usuario.editar', $usuario->id) }}" class="d-inline-block">
-                                        <button class="btn btn-success btn-sm" title="Editar">
+                                        <button class="btn btn-warning btn-sm" title="Editar">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
                                     </a>

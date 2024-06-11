@@ -43,7 +43,7 @@
                                 <td class="text-center">{{ Carbon::parse($feria->data_retorno)->format('d/m/Y') }}</td>
                                 <td class="text-center">{{ ucfirst(strtolower($feria->status)) }}</td>
                                 <td class="text-center">
-                                    <a><button class="btn btn-info btn-sm" title="Visualizar férias"><i class="fa-solid fa-eye"></i></button></a>
+                                    <a><button class="btn btn-info btn-sm" title="Visualizar férias" data-bs-toggle="modal" data-bs-target="#feriasModal"><i class="fa-solid fa-eye"></i></button></a>
 
                                     <form action="{{ route('adm.ferias.aprovaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
                                         @csrf

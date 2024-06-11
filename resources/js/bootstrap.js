@@ -14,6 +14,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import select2 from 'select2';
 select2();
 
+
+const myModal = document.getElementById('feriasModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+
+
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
