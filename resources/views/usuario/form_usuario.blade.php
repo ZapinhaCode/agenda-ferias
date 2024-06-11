@@ -170,5 +170,3 @@
         </div>
     </div>
 </div>
-
-<script src="{{ asset('js/mascaras.js') }}"></script>

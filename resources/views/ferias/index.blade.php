@@ -67,7 +67,7 @@
                                         <button class="btn btn-info btn-sm" title="Detalhes"><i class="fa-solid fa-circle-exclamation"></i></button>
                                     </a>
 
-                                    <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm" title="Excluir"><i class="fa-solid fa-circle-xmark"></i></button>

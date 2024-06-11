@@ -56,7 +56,7 @@
                                         </button>
                                     </a>
 
-                                    <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm" title="Excluir">
