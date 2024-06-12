@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (calendarEl) {
         var calendar = new Calendar(calendarEl, {
-            plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
+            plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, bootstrap5Plugin ],
+            themeSystem: 'bootstrap5',
             initialView: 'dayGridMonth',
             locale: 'pt-br',
             timeZone: 'America/Sao_Paulo',
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             editable: false,
 
             eventClick: function(info) {
+                // Inicio para o modal
                 eventoSelecionado = info.event;
             }
         });
