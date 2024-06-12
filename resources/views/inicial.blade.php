@@ -10,7 +10,7 @@
                     <p class="card-text">dias disponíveis</p>
                     <hr>
                     <p>O agendamento deve ser feito até dia <strong>20/03/2025</strong></p>
-                    <a href="#" class="btn btn-primary">AGENDAR FÉRIAS</a>
+                    <a href="{{ route('ferias.lista') }}" class="btn btn-primary">AGENDAR FÉRIAS</a>
                 </div>
             </div>
         </div>

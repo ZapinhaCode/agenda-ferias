@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-md">
-        <h1><b>Verifica calendário  <i class="fa-solid fa-calendar-days tamanho-icone-usuario"></i></b></h1>
+        <h1><b>Calendário das solicitações aprovadas  <i class="fa-solid fa-calendar-days tamanho-icone-usuario"></i></b></h1>
         <br><br>
         <div id="calendar"></div>
     </div>

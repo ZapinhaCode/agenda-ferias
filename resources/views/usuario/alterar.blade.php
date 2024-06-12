@@ -6,7 +6,7 @@
 
         @if(session('error'))
             <div class="alert alert-danger">
-                    <b>{{ session('error') }}</b>
+                <b>{{ session('error') }}</b>
             </div>
         @endif
 
