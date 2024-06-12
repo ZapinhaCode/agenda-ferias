@@ -13,7 +13,8 @@
     <body>
         
         <div id="app">
-            @include('partials.modalFerias')
+            @include('partials.modais.modalFerias')
+            @include('partials.modais.modalSugerirAlteracao')
             <div class="bg-image"></div>
             <div class="content">
                 @include('partials.navbar') <!-- Inclui a view parcial do menu -->

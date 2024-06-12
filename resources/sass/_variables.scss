@@ -28,6 +28,9 @@ $input-focus-color: var(--#{$prefix}tertiary-color);
 $input-placeholder-color: var(--#{$prefix}tertiary-color);
 $input-border-color: var(--#{$prefix}border-color);
 $input-bg: var(--#{$prefix}tertiary-bg);
+$input-disabled-color:gray;
+$input-disabled-bg:gray;
+$input-disabled-border-color:gray;
 
 //check
 $form-check-input-bg: var(--#{$prefix}tertiary-bg);

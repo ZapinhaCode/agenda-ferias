@@ -50,12 +50,6 @@
                                         </button>
                                     </a>
 
-                                    <a class="d-inline-block">
-                                        <button class="btn btn-info btn-sm" title="Detalhes">
-                                            <i class="fa-solid fa-circle-exclamation"></i>
-                                        </button>
-                                    </a>
-
                                     <form action="{{ route('adm.setor.excluir', $setor->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('delete')
