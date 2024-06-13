@@ -152,6 +152,18 @@ class FeriasController extends Controller
             $ferias->status = 'aprovado';
             $ferias->user_autorizacao_id = auth()->user()->id;
             $ferias->update();
+
+            $details = [
+                'nome' => $ferias->usuario->nome,
+                'data_inicio' => Carbon::parse($ferias->data_inicio)->format('d/m/Y'),
+                'data_fim' => Carbon::parse($ferias->data_retorno)->format('d/m/Y'),
+                'email' => $ferias->usuario->email,
+            ];
+
+            Mail::send('emails.aprovado', ['details' => $details], function($message) use ($details) {
+                $message->to($details['email'])->subject('Solicitação de Férias Aprovada');
+            });
+
             DB::commit();
             return redirect()->route('adm.ferias.solicitacoes')->with('sucesso', 'Férias aprovadas com sucesso, e-mail enviado para o funcionário!');
         } catch (\Exception $e) {
@@ -170,6 +182,18 @@ class FeriasController extends Controller
             $ferias->status = 'recusado';
             $ferias->user_autorizacao_id = auth()->user()->id;
             $ferias->update();
+
+            $details = [
+                'nome' => $ferias->usuario->nome,
+                'data_inicio' =>Carbon::parse($ferias->data_inicio)->format('d/m/Y'),
+                'data_fim' => Carbon::parse($ferias->data_retorno)->format('d/m/Y'),
+                'email' => $ferias->usuario->email,
+            ];
+
+            Mail::send('emails.recusado', ['details' => $details], function($message) use ($details) {
+                $message->to($details['email'])->subject('Solicitação de Férias Rejeitada');
+            });
+
             DB::commit();
             return redirect()->route('adm.ferias.solicitacoes')->with('sucesso', 'Férias recusada, e-mail enviado para o funcionário!');
         } catch (\Exception $e) {
