@@ -7,7 +7,8 @@
         <title>{{ config('app.name', 'FreedomFrames') }}</title>
         @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2-web/css/all.min.css') }}">
-        <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+        <link rel="icon" href="{{ asset('images/freedomframes.ico') }}">
+
     </head>
 
     <body>

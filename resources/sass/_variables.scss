@@ -28,9 +28,11 @@ $input-focus-color: var(--#{$prefix}tertiary-color);
 $input-placeholder-color: var(--#{$prefix}tertiary-color);
 $input-border-color: var(--#{$prefix}border-color);
 $input-bg: var(--#{$prefix}tertiary-bg);
+
 $input-disabled-color:gray;
 $input-disabled-bg:gray;
 $input-disabled-border-color:gray;
+
 
 //check
 $form-check-input-bg: var(--#{$prefix}tertiary-bg);
@@ -41,6 +43,14 @@ $form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://w
 $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#302d40'/></svg>");
 
 
+//tables
+.page-item{
+  background-color: #302d40
+}
+
+
+
+//calendario
 .fc-theme-bootstrap5 .fc-scrollgrid, .fc-theme-bootstrap5 td{
     border-style: none !important;
     padding: 5px; 
@@ -57,7 +67,7 @@ $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://ww
 }
 
 
-.table, .fc-scrollgrid, .fc-scrollgrid-liquid, .fc-dayGridMonth-view{
+.fc-scrollgrid-sync-table table, .fc-scrollgrid, .fc-scrollgrid-liquid, .fc-dayGridMonth-view{
     border-collapse: separate !important;
     border-spacing: 5px !important;
 
@@ -116,3 +126,6 @@ $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://ww
     display: inline-block; /* Necessário para aplicar largura e altura */
 }
 }
+
+
+

@@ -1,7 +1,9 @@
 import $ from 'jquery';
 import 'datatables.net';
-import "datatables.net-bs5";
 import "datatables.net-dt";
+import "datatables.net-bs5";
+import '../css/datatable-custom.css';
+
 
 window.$ = window.jQuery = $;
 
