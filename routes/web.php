@@ -12,7 +12,7 @@ Auth::routes();
 
 Route::get('/inicial', function () {
     return view('inicial');
-});
+})->name('telaInicial');
 
 Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
 Route::put('adm/ferias/aprovaSolicitacao/{id}', [FeriasController::class, 'aprovaSolicitacao'])->name('adm.ferias.aprovaSolicitacao');
@@ -22,6 +22,8 @@ Route::get('/ferias/calendario', [FeriasController::class , 'getCalendario'])->n
 Route::put('ferias/enviaSolicitacao/{id}', [FeriasController::class, 'enviaSolicitacao'])->name('ferias.enviaSolicitacao');
 
 Route::get('/meuPerfil/{id}', [UsuarioController::class, 'visualizaMeuPerfil'])->name('usuario.visualizaMeuPerfil');
+Route::get('/alterarSenha/{id}', [UsuarioController::class, 'getAlteraSenhaPerfil'])->name('usuario.getAlteraSenhaPerfil');
+Route::put('/alterarSenha/salvarNovaSenha/{id}', [UsuarioController::class, 'postAlteraSenhaPerfil'])->name('usuario.postAlterarSenhaPerfil');
 
 Route::resource('adm/usuario', UsuarioController::class)->names([
     'index' => 'adm.usuario.lista',

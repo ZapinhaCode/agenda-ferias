@@ -8,13 +8,15 @@
             @enderror
         </div>
 
-        <div class="col-sm-6">
-            <label>Senha  <i class="fa-solid fa-lock"></i></label>
-            <input type="password" class="form-control form-control-lg" name="password" placeholder="Digite a sua senha">
-            @error('password')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
+        @if (!isset($usuario))
+            <div class="col-sm-6">
+                <label>Senha  <i class="fa-solid fa-lock"></i></label>
+                <input type="password" class="form-control form-control-lg" name="password" placeholder="Digite a sua senha">
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        @endif
     </div>
 
     <div class="form-group row">

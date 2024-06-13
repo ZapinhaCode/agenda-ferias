@@ -10,6 +10,8 @@ use App\Models\Cidade;
 use App\Models\Setores;
 use App\Models\Cargo;
 use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\AtualizaSenhaRequest;
+use App\Http\Requests\AtualizaUsuarioRequest;
 use Illuminate\Support\Facades\DB;
 
 class UsuarioController {
@@ -75,7 +77,7 @@ class UsuarioController {
         return view('usuario.alterar', compact('usuario', 'cargos', 'setores', 'estados', 'cidades',));
     }
 
-    public function update(UsuarioRequest $request, $id) {
+    public function update(AtualizaUsuarioRequest $request, $id) {
         // Atualizar um usuário específico
 
         DB::beginTransaction();
@@ -115,5 +117,33 @@ class UsuarioController {
         $estados = Estado::all();
         $cidades = Cidade::all();
         return view('usuario.detalhesUsuario', compact('usuario', 'cargos', 'setores', 'estados', 'cidades'));
+    }
+
+    public function getAlteraSenhaPerfil($id) {
+        // Mostra a tela para alterar a senha
+        return view('usuario.alteraSenhaUsuario');
+    }
+
+    public function postAlteraSenhaPerfil(AtualizaSenhaRequest $request, $id) {
+        // Salva no banco a senha nova
+
+        DB::beginTransaction();
+        try {
+            $request->validated();
+            $input = $request->all();
+            $usuario = auth()->user();
+
+            if ($input['password'] == $input['confirme_password']) {
+                $usuarioSenha = $usuario->password;
+                $senhaCriptografada = bcrypt($input['password']);
+                $usuario->password = $senhaCriptografada;
+                $usuario->save();                 
+                DB::commit();
+            }
+            return redirect()->route('telaInicial')->with('sucesso', 'Alterado a senha do funcionário com sucesso!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', $e . 'Erro ao atualizar a senha do funcionário, verifique e tente novamente!');
+        }
     }
 }

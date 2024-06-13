@@ -48,6 +48,10 @@
                             <li>
                                 <a class="dropdown-item text-center" href="{{ route('usuario.visualizaMeuPerfil', auth()->user()->id) }}">Meu perfil <i class="fa-solid fa-user"></i></a>
                             </li>
+
+                            <li>
+                                <a class="dropdown-item text-center" href="{{ route('usuario.getAlteraSenhaPerfil', auth()->user()->id) }}">Alterar senha <i class="fa-solid fa-key"></i></a>
+                            </li>
                         @endif
 
                         <li>
