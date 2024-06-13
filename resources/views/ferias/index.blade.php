@@ -63,7 +63,14 @@
                                         <button class="btn btn-warning btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
 
-                                    <a><button class="btn btn-info btn-sm" title="Visualizar férias" data-bs-toggle="modal" data-bs-target="#feriasModal"><i class="fa-solid fa-circle-exclamation"></i></button></a>
+                                    <a>
+                                        <button class="btn btn-info btn-sm" 
+                                            title="Visualizar férias" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#feriasModal">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </button>
+                                    </a>
 
                                     <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
                                         @csrf
