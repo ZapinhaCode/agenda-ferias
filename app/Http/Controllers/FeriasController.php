@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Ferias;
 use App\Repositories\FeriasRepository;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class FeriasController extends Controller
 {
