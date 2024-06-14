@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\UsuarioRepository;
+use App\Repositories\FeriasRepository;
 use App\Models\User;
 use App\Models\Estado;
 use App\Models\Cidade;
@@ -13,12 +14,14 @@ use App\Http\Requests\UsuarioRequest;
 use App\Http\Requests\AtualizaSenhaRequest;
 use App\Http\Requests\AtualizaUsuarioRequest;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UsuarioController {
     private $usuarioRepository;
 
-    public function __construct(UsuarioRepository $usuarioRepository) {
+    public function __construct(UsuarioRepository $usuarioRepository, FeriasRepository $feriasRepository) {
         $this->usuarioRepository = $usuarioRepository;
+        $this->feriasRepository = $feriasRepository;
     }
 
     public function index() {
@@ -145,5 +148,31 @@ class UsuarioController {
             DB::rollback();
             return redirect()->back()->with('error', $e . 'Erro ao atualizar a senha do funcionário, verifique e tente novamente!');
         }
+    }
+
+    public function telaInicial() {
+        $usuario = auth()->user();
+        $ferias = $this->feriasRepository->minhasSolicitacoes();
+        $diasTrabalhados = 365;
+        $faltasInjustificadas = 0;
+        $diasParaFerias = 0;
+        $dataLimiteFerias = $usuario->created_at->addYear();
+
+        if ($diasTrabalhados < 365) {
+            $diasParaFerias = 0;
+        }
+        if ($faltasInjustificadas <= 5) {
+            $diasParaFerias = 30;
+        } elseif ($faltasInjustificadas <= 14) {
+            $diasParaFerias = 24;
+        } elseif ($faltasInjustificadas <= 23) {
+            $diasParaFerias = 18;
+        } elseif ($faltasInjustificadas <= 32) {
+            $diasParaFerias = 12;
+        } else {
+            $diasParaFerias = 0;
+        }
+
+        return view('inicial', compact('ferias', 'diasParaFerias', 'dataLimiteFerias'));
     }
 }

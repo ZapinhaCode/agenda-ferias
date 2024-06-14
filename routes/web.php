@@ -10,9 +10,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/inicial', function () {
-    return view('inicial');
-})->name('telaInicial');
+Route::get('/inicial', [UsuarioController::class, 'telaInicial'])->name('telaInicial');
 
 Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
 Route::put('adm/ferias/aprovaSolicitacao/{id}', [FeriasController::class, 'aprovaSolicitacao'])->name('adm.ferias.aprovaSolicitacao');

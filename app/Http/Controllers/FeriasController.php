@@ -180,7 +180,7 @@ class FeriasController extends Controller
 
         try {
             $ferias = Ferias::findOrFail($id);
-            $ferias->status = 'recusado';
+            $ferias->status = 'solicitaAlteracao';
             $ferias->user_autorizacao_id = auth()->user()->id;
             $ferias->update();
 
