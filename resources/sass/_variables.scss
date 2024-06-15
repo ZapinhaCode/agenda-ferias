@@ -43,10 +43,12 @@ $form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://w
 $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#302d40'/></svg>");
 
 
+
 //tables
-.dt-paging-button :disabled{
-  background-color: #302d40 !important;
-  color: #a7f2ba !important;
+.page-link{
+  color: #5a5a5a !important;
+
+
 }
 
 
