@@ -7,7 +7,7 @@
         <title>{{ config('app.name', 'FreedomFrames') }}</title>
         @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2-web/css/all.min.css') }}">
-        <link rel="icon" href="{{ asset('images/freedomframes.ico') }}">
+        <link rel="icon" href="{{ asset('fav-icon/freedomframes.ico') }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
