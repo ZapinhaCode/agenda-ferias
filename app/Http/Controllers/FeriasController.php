@@ -47,7 +47,15 @@ class FeriasController extends Controller
     }
 
     public function show($id) {
-        // Mostra uma ferias específica
+        // Retrieve specific vacation details
+        $ferias = Ferias::findOrFail($id);
+    
+        // Check if the request is an AJAX request
+        if (request()->ajax()) {
+            return response()->json($ferias);
+        }
+    
+        return view('partials.modais.modalFerias', compact('ferias'));
     }
 
     public function edit($id) {
@@ -87,6 +95,11 @@ class FeriasController extends Controller
             return redirect()->back()->with('error', 'Erro ao eliminar férias, verifique e tente novamente!');
         }
     }
+
+
+
+
+
 
     public function enviaSolicitacao($id) {
         // Colocar o enviado_solicitacao = 1

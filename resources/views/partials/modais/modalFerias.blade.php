@@ -1,3 +1,5 @@
+
+
 <div class="modal fade" id="feriasModal" tabindex="-1" aria-labelledby="modalVisualizarFerias" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -22,7 +24,7 @@
         <div class="form-group row mb-3">
           <div class="col-sm-6">
             <label class="form-label">Data de início das férias <i class="fa-solid fa-plane-departure"></i></label>
-            <input type="text" class="form-control" id="dataInicio" readonly>
+            <input type="text" class="form-control" id="modalDataInicio" readonly>
           </div>
 
           <div class="col-sm-6">

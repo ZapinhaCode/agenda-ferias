@@ -4,7 +4,8 @@
     @php
         use Carbon\Carbon;
     @endphp
-
+    
+    
     <div class="container-md">
         <div class="container-fluid">
             @if(session('sucesso'))
@@ -64,10 +65,11 @@
                                     </a>
 
                                     <a>
-                                        <button class="btn btn-info btn-sm" 
+                                        <button class="btn btn-info btn-sm open-modal" 
                                             title="Visualizar férias" 
                                             data-bs-toggle="modal" 
-                                            data-bs-target="#feriasModal">
+                                            data-bs-target="#feriasModal"
+                                            data-id="{{ $feria->id }}">
                                             <i class="fa-solid fa-circle-exclamation"></i>
                                         </button>
                                     </a>
