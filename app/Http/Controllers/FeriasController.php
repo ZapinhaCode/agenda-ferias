@@ -135,7 +135,7 @@ class FeriasController extends Controller
             $ferias = $this->feriasRepository->feriasPermissaoAdminstrador();
         } else if (auth()->user()->cargo->permissao == 'funcionario') {
             $ferias = $this->feriasRepository->feriasPermissaoFuncionario();
-        } else {
+        } else if (auth()->user()->cargo->permissao == 'gestor') {
             $ferias = $this->feriasRepository->feriasPermissaoGestor();
         }
 

@@ -37,9 +37,7 @@ class FeriasRepository {
     public function feriasPermissaoGestor() {
         return $this->model->newQuery()
             ->leftJoin('usuario', 'ferias.user_id', 'usuario.id')
-            ->leftJoin('cargo', 'usuario.cargo_id', 'cargo.id')
-            ->where('cargo.permissao', 'gestor')
-            ->where('usuario.cargo_id', auth()->user()->cargo->id)
+            ->where('usuario.setor_id', auth()->user()->setor_id)
             ->where('enviado_solicitacao', 1)
             ->where('ferias.status', 'aprovado')
             ->whereNotNull('user_autorizacao_id')
