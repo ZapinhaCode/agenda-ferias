@@ -7,10 +7,6 @@ import '../css/datatable-custom.css';
 import '../js/calendario.js';
 import './modais.js';
 
-
-
-window.$ = window.jQuery = $;
-
 $(function () {
     $('.select2').select2({
         theme: 'bootstrap-5',
