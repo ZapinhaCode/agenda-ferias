@@ -1,4 +1,5 @@
 import './bootstrap';
+export { abreModalFeriasCalendario };
 
 // Modal para sugerir alteração nas ferias
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,3 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Monta o modal para exibir no calendário
+function abreModalFeriasCalendario(tituloFerias, diaInicioFerias, diaRetornoFerias, observacaoFerias, localFerias) {
+    $('#feriasModal').on('shown.bs.modal', function () {
+        if (localFerias == null) {
+            localFerias = 'Campo não preenchido.';
+        }
+
+        if (observacaoFerias == null) {
+            observacaoFerias = 'Campo não preenchido.';
+        }
+
+        $('#modalTitulo').val(tituloFerias);
+        $('#local').val(localFerias);
+        $('#modalDataInicio').val(diaInicioFerias);
+        $('#modalDataRetorno').val(diaRetornoFerias);
+        $('#observacao').val(observacaoFerias);
+
+        const elemento = document.querySelector('#feriasModal');
+
+        if (elemento) {
+            elemento.focus();
+        }
+    });
+
+    $('#feriasModal').modal('show');
+}

@@ -3,8 +3,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-import 'bootstrap-icons/font/bootstrap-icons.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { abreModalFeriasCalendario } from './modais';
 import $ from 'jquery';
+import 'bootstrap';
 window.$ = window.jQuery = $;
 var eventoSelecionado = null;
 
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                right: 'dayGridMonth'
             },
 
             buttonText: {
@@ -39,6 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
             eventClick: function(info) {
                 // Inicio para o modal
                 eventoSelecionado = info.event;
+                var tituloFerias = eventoSelecionado.title                
+                var diaInicioFerias = moment(eventoSelecionado.startStr).format('DD/MM/YYYY');
+                var diaRetornoFerias = moment(eventoSelecionado.endStr).format('DD/MM/YYYY');
+                var observacaoFerias = eventoSelecionado._def.extendedProps.observacao;
+                var localFerias = eventoSelecionado._def.extendedProps.localizacao;
+                abreModalFeriasCalendario(tituloFerias, diaInicioFerias, diaRetornoFerias, observacaoFerias, localFerias)
             }
         });
 

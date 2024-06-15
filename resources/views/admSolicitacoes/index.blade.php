@@ -44,7 +44,12 @@
                                 <td class="text-center">{{ ucfirst(strtolower($feria->status)) }}</td>
                                 <td class="text-center">
                                     <a>
-                                        <button class="btn btn-info btn-sm open-modal" title="Visualizar férias" data-bs-toggle="modal" data-bs-target="#feriasModal" data-id="{{ $feria->id }}">
+                                        <button 
+                                            class="btn btn-info btn-sm open-modal"
+                                            title="Visualizar férias"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#feriasModal"
+                                            data-id="{{ $feria->id }}">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                     </a>

@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="feriasModal" tabindex="-1" aria-labelledby="modalVisualizarFerias" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
