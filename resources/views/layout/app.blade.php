@@ -8,7 +8,7 @@
         @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2-web/css/all.min.css') }}">
         <link rel="icon" href="{{ asset('images/freedomframes.ico') }}">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     </head>
 
     <body>
@@ -20,7 +20,6 @@
             <div class="content">
                 @include('partials.navbar') <!-- Inclui a view parcial do menu -->
                 <div class="container-md bg-dark object-fit-fill border rounded pt-4">
-                    
                     @yield('content')
                 </div>
             </div>

@@ -47,10 +47,8 @@ class FeriasController extends Controller
     }
 
     public function show($id) {
-        // Retrieve specific vacation details
         $ferias = Ferias::findOrFail($id);
-    
-        // Check if the request is an AJAX request
+
         if (request()->ajax()) {
             return response()->json($ferias);
         }
@@ -95,11 +93,6 @@ class FeriasController extends Controller
             return redirect()->back()->with('error', 'Erro ao eliminar férias, verifique e tente novamente!');
         }
     }
-
-
-
-
-
 
     public function enviaSolicitacao($id) {
         // Colocar o enviado_solicitacao = 1
@@ -187,13 +180,13 @@ class FeriasController extends Controller
     }
 
     public function negaSolicitacao($id) {
-        // status = negado e manda um email explicando o porque
+        // status = negado e manda um email dizendo que foi rejeitado
 
         DB::beginTransaction();
 
         try {
             $ferias = Ferias::findOrFail($id);
-            $ferias->status = 'solicitaAlteracao';
+            $ferias->status = 'recusado';
             $ferias->user_autorizacao_id = auth()->user()->id;
             $ferias->update();
 
@@ -216,7 +209,23 @@ class FeriasController extends Controller
         }
     }
 
-    public function sugereAlteracaoSolicitacao($id) {
+    public function sugereAlteracaoSolicitacao(Request $request, $id) {
         // status = pendente e manda um email sobre a sugestao
+
+        $input = $request->all();
+        $ferias = Ferias::findOrFail($id);
+        $ferias->status = 'solicitaAlteracao';
+
+        $details = [
+            'nome' => $ferias->usuario->nome,
+            'data_inicio' => $ferias->data_inicio,
+            'data_fim' => $ferias->data_fim,
+            'email' => $ferias->usuario->email,
+            'solicitacao' => $input['solicitacao']
+        ];
+
+        Mail::send('emails.sugerirAlteracao', ['details' => $details], function($message) use ($details) {
+            $message->to($details['email'])->subject('Solicitação de Alteração da Férias');
+        });
     }
 }
