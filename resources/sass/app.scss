@@ -34,7 +34,7 @@
 
 .bg-image {
     // A imagem de fundo
-    background-image: url('/images/bg1.webp'); /* Verifique se o caminho está correto */
+    background-image: url('../images/bg1.webp'); /* Verifique se o caminho está correto */
     filter: blur(20px);
     -webkit-filter: blur(20px);
     height: 100%;
