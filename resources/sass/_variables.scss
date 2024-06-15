@@ -44,8 +44,9 @@ $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://ww
 
 
 //tables
-.page-item{
-  background-color: #302d40
+.dt-paging-button :disabled{
+  background-color: #302d40 !important;
+  color: #a7f2ba !important;
 }
 
 
