@@ -1,5 +1,5 @@
 <!-- resources/views/partials/navbar.blade.php -->
-<nav class="navbar navbar-expand-lg bg-body-secondary  rounded-5 my-4 px-5 shadow row">
+<nav class="navbar navbar-expand-lg rounded-5 my-4 px-5 shadow row" style="background-color: #203640;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img height="80" width="80" src="{{ asset('images/logocalendariobranca.svg') }}" />

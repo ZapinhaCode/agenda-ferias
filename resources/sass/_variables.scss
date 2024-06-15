@@ -29,9 +29,6 @@ $input-placeholder-color: var(--#{$prefix}tertiary-color);
 $input-border-color: var(--#{$prefix}border-color);
 $input-bg: var(--#{$prefix}tertiary-bg);
 
-$input-disabled-color:gray;
-$input-disabled-bg:gray;
-$input-disabled-border-color:gray;
 
 
 //check
@@ -46,8 +43,7 @@ $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://ww
 
 //tables
 .page-link{
-  color: #5a5a5a !important;
-
+  color: #5d645f !important;
 
 }
 
