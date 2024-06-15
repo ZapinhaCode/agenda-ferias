@@ -61,10 +61,12 @@
                                         <button class="btn btn-danger btn-sm" title="Rejeitar solicitação"><i class="fa-solid fa-thumbs-down"></i></button>
                                     </form>
 
-                                    <a> <button class="btn btn-warning btn-sm" title="Sugerir alteração" data-bs-toggle="modal" data-bs-target="#sugerirAlteracao"><i class="fa-solid fa-file-pen"></i></button></a>
+                                    <a>
+                                        <button class="btn btn-warning btn-sm" title="Sugerir alteração" data-bs-toggle="modal" data-bs-target="#sugerirAlteracao"><i class="fa-solid fa-file-pen"></i></button>
+                                    </a>
                                 </td>
                             </tr>
-                        @endforeach                        
+                        @endforeach
                     @else
                         <tr>
                             <td class="text-center" colspan="4">Nenhum registro encontrado</td>
@@ -74,5 +76,4 @@
             </table>
         </div>
     </div>
-
 @endsection

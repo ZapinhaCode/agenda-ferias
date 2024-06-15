@@ -51,10 +51,12 @@
                             </label>
                         </div>
                     </div>
-                         {{-- if (Route::has('password.request')) --}}
-                    {{-- <a class="btn btn-link col-3 " href="{{ route('password.request') }}">
-                        {{ __('Esqueceu a senha?') }}
-                        </a> --}}
+                    
+                    @if (Route::has('password.request'))
+                        <a class="btn btn-link col-3 " href="{{ route('password.request') }}">
+                            Esqueceu a senha?
+                        </a> 
+                    @endif
                 </div>
 
                 <div class="row mb-0">
@@ -62,8 +64,6 @@
                         <button type="submit" class="btn btn-success px-5 object-fit-cover fs-4">
                             {{ __('Login') }}
                         </button>
-
-
                     </div>
                 </div>
             </form>

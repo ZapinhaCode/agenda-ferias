@@ -7,7 +7,8 @@ use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\PermissaoFuncionario;
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 Route::middleware('auth')->group(function() { 
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/inicial', [HomeController::class, 'index'])->name('telaInicial');
@@ -23,7 +24,8 @@ Route::middleware('auth')->group(function() {
         Route::get('/adm/ferias/solicitacoes', [FeriasController::class, 'admSolicitacoes'])->name('adm.ferias.solicitacoes');
         Route::put('adm/ferias/aprovaSolicitacao/{id}', [FeriasController::class, 'aprovaSolicitacao'])->name('adm.ferias.aprovaSolicitacao');
         Route::put('adm/ferias/recusaSolicitacao/{id}', [FeriasController::class, 'negaSolicitacao'])->name('adm.ferias.recusaSolicitacao');
-    
+        Route::put('adm/ferias/solicitaAlteracao/{id}', [FeriasController::class, 'sugereAlteracaoSolicitacao'])->name('adm.ferias.solicitaAlteracao');
+
         Route::resource('adm/usuario', UsuarioController::class)->names([
             'index' => 'adm.usuario.lista',
             'create' => 'adm.usuario.adicionar',
