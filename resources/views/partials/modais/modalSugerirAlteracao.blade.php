@@ -8,7 +8,7 @@
 
             @if (isset($feria))
                 <div class="modal-body">
-                    <form action="{{ route('adm.ferias.solicitaAlteracao', $feria->id) }}" method="POST">
+                    <form action="{{ route('adm.ferias.solicitaAlteracao', $feria->id) }}" method="POST" class="loading-form">
                         @method('PUT')
                         @csrf
                         <div class="form-group row">
@@ -17,8 +17,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar  <i class="fa-solid fa-x"></i></button>
-                            <button type="submit" class="btn btn-primary">Enviar e-mail <i class="fa-solid fa-envelope"></i></button>
+                            <button type="button" class="btn btn-secondary loading-button" data-bs-dismiss="modal">Fechar  <i class="fa-solid fa-x"></i></button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enviar e-mail <i class="fa-solid fa-envelope"></i></button>
                         </div>
                     </form>
                 </div>

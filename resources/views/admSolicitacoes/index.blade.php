@@ -54,16 +54,24 @@
                                         </button>
                                     </a>
 
-                                    <form action="{{ route('adm.ferias.aprovaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('adm.ferias.aprovaSolicitacao', $feria->id) }}" method="POST" class="d-inline loading-form">
                                         @csrf
                                         @method('PUT')
-                                        <button class="btn btn-success btn-sm" title="Aprovar solicitação"><i class="fa-solid fa-thumbs-up"></i></button>
+                                        <button class="btn btn-success btn-sm loading-button"
+                                            type="submit"
+                                            title="Aprovar solicitação">
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                        </button>
                                     </form>
 
-                                    <form action="{{ route('adm.ferias.recusaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('adm.ferias.recusaSolicitacao', $feria->id) }}" method="POST" class="d-inline loading-form">
                                         @csrf
                                         @method('PUT')
-                                        <button class="btn btn-danger btn-sm" title="Rejeitar solicitação"><i class="fa-solid fa-thumbs-down"></i></button>
+                                        <button 
+                                            class="btn btn-danger btn-sm loading-button"
+                                            title="Rejeitar solicitação">
+                                            <i class="fa-solid fa-thumbs-down"></i>
+                                        </button>
                                     </form>
 
                                     <a>

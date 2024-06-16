@@ -12,7 +12,7 @@
                 @endif
 
                 <div class="container-fluid">
-                        <form action="{{ route('adm.usuario.salvar') }}" method="POST">
+                        <form action="{{ route('adm.usuario.salvar') }}" method="POST" class="loading-form">
                            @csrf
                            @include('usuario.form_usuario')
                         </form>
