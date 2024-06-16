@@ -22,7 +22,8 @@ class Ferias extends Authenticatable
         'local_ferias',
         'status',
         'user_autorizacao_id',
-        'ferias_cor'
+        'ferias_cor',
+        'enviado_solicitacao'
     ];
 
     public function usuario() {
