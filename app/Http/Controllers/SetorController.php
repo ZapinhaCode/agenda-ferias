@@ -40,18 +40,20 @@ class SetorController extends Controller {
 
         try {
             $request->validated();
+            $input = $request->all();
             $setor = new Setores($request->all());
+            $usuario = User::findOrFail($input['gerente_user_id']);
             $setor->save();
+            if (is_null($usuario->setor_id)) {
+                $usuario->setor_id = $setor->id;
+                $usuario->save();
+            }
             DB::commit();
             return redirect()->route('adm.setor.lista')->with('sucesso', 'Setor criado com sucesso!');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', 'Erro ao criar novo setor, verifique e tente novamente!');
         }
-    }
-
-    public function show($id) {
-        // Mostrar um setor específico
     }
 
     public function edit($id) {

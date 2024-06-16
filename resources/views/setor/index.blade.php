@@ -5,11 +5,11 @@
         <div class="container-fluid">
             @if(session('sucesso'))
                 <div class="alert alert-success">
-                    <b>{{ session('sucesso') }}</b>
+                    <b class="text-body-secondary">{{ session('sucesso') }}</b>
                 </div>
             @elseif (session('error'))
                 <div class="alert alert-danger">
-                    <b>{{ session('error') }}</b>
+                    <b class="text-body-secondary">{{ session('error') }}</b>
                 </div>
             @endif
 
