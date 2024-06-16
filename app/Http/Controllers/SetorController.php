@@ -87,6 +87,11 @@ class SetorController extends Controller {
 
         try {
             $setor = Setores::findOrFail($id);
+            $usuario = User::findOrFail($setor->gerente_user_id);
+            if (!is_null($usuario)) {
+                $usuario->setor_id = null;
+            }
+            $usuario->save();
             $setor->delete();
             DB::commit();
             return redirect()->route('adm.setor.lista')->with('sucesso', 'Setor deletado do sistema com sucesso!');
