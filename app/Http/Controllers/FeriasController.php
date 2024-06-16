@@ -215,17 +215,25 @@ class FeriasController extends Controller
         $input = $request->all();
         $ferias = Ferias::findOrFail($id);
         $ferias->status = 'solicitaAlteracao';
+        $ferias->update();
 
-        $details = [
-            'nome' => $ferias->usuario->nome,
-            'data_inicio' => $ferias->data_inicio,
-            'data_fim' => $ferias->data_fim,
-            'email' => $ferias->usuario->email,
-            'solicitacao' => $input['solicitacao']
-        ];
+        if (isset($input['solicitacao'])) {
+            $details = [
+                'nome' => $ferias->usuario->nome,
+                'data_inicio' =>Carbon::parse($ferias->data_inicio)->format('d/m/Y'),
+                'data_fim' => Carbon::parse($ferias->data_retorno)->format('d/m/Y'),
+                'email' => $ferias->usuario->email,
+                'solicitacao' => $input['solicitacao']
+            ];
 
-        Mail::send('emails.sugerirAlteracao', ['details' => $details], function($message) use ($details) {
-            $message->to($details['email'])->subject('Solicitação de Alteração da Férias');
-        });
+            Mail::send('emails.sugerirAlteracao', ['details' => $details], function($message) use ($details) {
+                $message->to($details['email'])->subject('Solicitação de Alteração da Férias');
+            });
+
+            DB::commit();
+            return redirect()->route('adm.ferias.solicitacoes')->with('sucesso', 'Sugestão de alteração, enviado para o funcionário com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Problema ao enviar solicitação para o funcionário, tente novamente.');
+        }
     }
 }

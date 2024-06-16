@@ -52,7 +52,7 @@
                                 <td class="text-center">{{ Carbon::parse($feria->data_inicio)->format('d/m/Y') }}</td>
                                 <td class="text-center">{{ Carbon::parse($feria->data_retorno)->format('d/m/Y') }}</td>
                                 <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : ($feria->status == 'solicitaAlteracao' ? 'Solicitou alteração' : ucfirst(strtolower($feria->status))) }}</td>
-                                <td class="text-center">{{ is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome }}</td>
+                                <td class="text-center">{{ $feria->status == 'solicitaAlteracao' ? 'Pedido para alteração' : (is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome) }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('ferias.enviaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
                                         @csrf
