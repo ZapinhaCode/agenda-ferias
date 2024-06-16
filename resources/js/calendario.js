@@ -7,6 +7,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { abreModalFeriasCalendario } from './modais';
 import $ from 'jquery';
 import 'bootstrap';
+import * as XLSX from 'xlsx';
+
 window.$ = window.jQuery = $;
 var eventoSelecionado = null;
 
@@ -39,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             editable: false,
 
             eventClick: function(info) {
-                // Inicio para o modal
                 eventoSelecionado = info.event;
                 var tituloFerias = eventoSelecionado.title                
                 var diaInicioFerias = moment(eventoSelecionado.startStr).format('DD/MM/YYYY');
@@ -51,5 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         calendar.render();
+
+        document.getElementById('exportButton').addEventListener('click', function() {
+            var events = calendar.getEvents().map(function(event) {
+                return {
+                    Título: event.title,
+                    Início: moment(event.start).format('DD/MM/YYYY'),
+                    Retorno: moment(event.end).format('DD/MM/YYYY'),
+                    Observacao: event.extendedProps.observacao,
+                    Localizacao: event.extendedProps.localizacao
+                };
+            });
+
+            var worksheet = XLSX.utils.json_to_sheet(events);
+            var workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Events');
+            XLSX.writeFile(workbook, 'Ferias_Aprovadas.xlsx');
+        });
     }
 });

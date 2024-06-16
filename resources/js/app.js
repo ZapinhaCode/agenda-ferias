@@ -6,6 +6,7 @@ import '../css/select2-custom.css';
 import '../css/datatable-custom.css';
 import '../js/calendario.js';
 import './modais.js';
+import 'xlsx';
 
 $(function () {
     $('.select2').select2({
