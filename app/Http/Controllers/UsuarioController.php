@@ -15,6 +15,7 @@ use App\Http\Requests\AtualizaSenhaRequest;
 use App\Http\Requests\AtualizaUsuarioRequest;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class UsuarioController {
     private $usuarioRepository;
@@ -48,9 +49,21 @@ class UsuarioController {
 
         try {
             $request->validated();
-            $usuario = new User($request->all());
+            $input = $request->all();
+            $usuario = new User($input);
             $usuario->password = bcrypt($request->password);
             $usuario->save();
+
+            $details = [
+                'nome' => $usuario->nome,
+                'email' => $usuario->email,
+                'senha' => $input['password'],
+            ];
+
+            Mail::send('emails.cadastro', ['details' => $details], function($message) use ($details) {
+                $message->to($details['email'])->subject('Cadastro Aprovado');
+            });
+
             DB::commit();
             return redirect()->route('adm.usuario.lista')->with('sucesso', 'Funcionário criado com sucesso!');
         } catch (\Exception $e) {
