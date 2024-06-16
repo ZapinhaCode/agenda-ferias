@@ -31,7 +31,7 @@
                         <ul class="dropdown-menu dropdown-menu-lg-end">
                             <li><a class="dropdown-item" href="{{ route('adm.usuario.lista') }}"><i class="fa-solid fa-users"></i>  Funcionário(s)</a></li>
                             <li><a class="dropdown-item" href="{{ route('adm.setor.lista') }}"><i class="fa-solid fa-sitemap"></i>  Setores</a></li>
-                            <li><a class="dropdown-item" href="{{ route('adm.ferias.solicitacoes') }}"><i class="fa-solid fa-calendar-check"></i>  Aprovar solicitações</a></li>
+                            <li><a class="dropdown-item" href="{{ route('adm.ferias.solicitacoes') }}"><i class="fa-solid fa-calendar-check"></i>  Solicitações para análise</a></li>
                         </ul>
                     </li>
                 @endif
