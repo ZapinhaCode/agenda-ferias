@@ -181,3 +181,6 @@ php artisan serve
 ```
 npm run dev
 ```
+
+## Licença
+Este projeto se trata de um open-source que segue os padrões licenciados pela [MIT license](https://opensource.org/licenses/MIT).
