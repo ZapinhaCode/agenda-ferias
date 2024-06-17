@@ -1,66 +1,183 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Freedom Frames
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descrição do Projeto
+O sistema de gerenciamento de férias proposto visa facilitar a organização e otimização do tempo de férias dos colaboradores dentro de uma empresa, garantindo conformidade com as políticas internas e legislação laboral. Por meio de funcionalidades chave, como solicitação eletrônica de férias, aprovação gerencial automatizada, visualização de calendários de férias integrados, e notificações em tempo real, o sistema busca simplificar o processo de planejamento de férias, melhorar a transparência entre gestores e colaboradores, e contribuir para uma gestão de recursos mais eficiente. Além disso, oferece à empresa a capacidade de gerar relatórios detalhados para análises estratégicas, ajudando a manter um ambiente de trabalho equilibrado e produtivo.
 
-## About Laravel
+## Funcionalidades
+- **Acesso via login:** Cada funcionário terá um login fornecido por um administrador via e-mail. Podendo realizar a troca da senha ao tentar logar no sistema ou com ele já logado.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Controle de acesso:** Cada funcionário terá um tipo de permissão tendo três em seu total:
+    - **Administrador:** Pode cadastrar, editar e excluir funcionários e setores, onde realiza a verificação das solicitações de férias encaminhadas para análise. Como também pode solicitar elas pelo sistema.
+    - **Gestor:** Pode acompanhar as férias da sua equipe para melhor organização, como também solicitar elas.
+    - **Funcionário:** Agenda suas férias e envia elas para avaliação de um funcionário administrador.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Criação de Planos de Férias:** Permite aos funcionários criar e personalizar seus planos de férias.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Calendário:** O sistema fornece uma tela específica onde possui um calendário. La será possível acomanhar as férias que foram aprovadas, e onde são gravadas, podendo ser visualizadas com mais detalhes caso clicar nela.
 
-## Learning Laravel
+- **Exportar férias para um arquivo .xlsx:** Permite que todos possam exportar as férias que contém no calendário em um arquivo xlsx caso desejarem.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Tela inicial:** Nesta tela poderá verificar algumas informações gerais, como quantos dias possui para agendar as suas férias, e também a data limite para poder usufruí-las. 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Notificações por Email:** Os funcionários recebem notificações via email sobre as seguintes questões:
+  - Cadastro realizado na base de dados do sistema;
+  - Aprovação de férias;
+  - Rejeição das férias;
+  - Pedido de alteração de alguma informação enviada para análise das férias.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Tecnologias Utilizadas
+- PHP (8.3.6)
+- JavaScript
+- Laravel (11.4.0)
+- Laravel UI (Autenticação dos usuários - 4.5)
+- Vite (Gerenciador dos pacotes node - 5.2.11)
+- Jquery (3.7.1)
+- MySQL (Banco de Dados)
+- GitHub
+- Bootstrap (Framework CSS - 5.3.3)
+- Sass (Estilização CSS - 1.56.1)
+- PHPMailer (Biblioteca para envio de emails)
+- Composer (Gerenciador de dependências PHP)
+- Nginx/Apache (Servidor Web)
+- Full Calendar (Biblioteca node para montar o calendário - 6.1.14)
+- Select2 (Campos mais intuitivos para campos select - 4.1.0)
+- Xlsx (Biblioteca em node para montar arquivos .xlsx - 0.18.5)
+- Provedor gmail (Utilizado uma conta gmail nomeado para o sistema, para envio dos emails)
+- DataTables (Biblioteca de Jquery onde estiliza as tables principais do sistema - 2.0.7)
+- FontAwesome (Biblioteca de ícones para estilização do projeto - 6.5.2)
 
-## Laravel Sponsors
+## Pré-requisitos
+- PHP >= 8.3
+- Jquery >= 3.7.1
+- Bootstrap >= 5.3.3
+- DataTables >= 2.0.7
+- Select2 >= 4.1.0
+- Composer
+- MySQL
+- Nginx/Apache
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Licença
 
-### Premium Partners
+### Olhar e se inspirar neste projeto
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Instruções de instalação
 
-## Contributing
+### Passo 1: Clonar o Repositório
+```bash
+git clone https://github.com/ZapinhaCode/agenda-ferias.git
+cd agenda-ferias
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Passo 2: Rodar as dependências do projeto
+```
+composer install
+npm install
+```
 
-## Code of Conduct
+### Passo 3: Criar o arquivo .env pegando o .env.example como referência
+```
+APP_NAME=FreedomFrames
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_TIMEZONE=America/Sao_Paulo
+APP_URL=http://localhost
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+APP_LOCALE=pt_BR
+APP_FALLBACK_LOCALE=pt_BR
+APP_FAKER_LOCALE=pt_BR
 
-## Security Vulnerabilities
+APP_MAINTENANCE_DRIVER=file
+APP_MAINTENANCE_STORE=database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+BCRYPT_ROUNDS=12
 
-## License
+LOG_CHANNEL=stack
+LOG_STACK=single
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=agendaFerias
+DB_USERNAME=root
+DB_PASSWORD=
+
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=null
+
+BROADCAST_CONNECTION=log
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=database
+
+CACHE_STORE=database
+CACHE_PREFIX=
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=freedomframessmtp@gmail.com
+MAIL_PASSWORD="rrea paeb slly uvge"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="freedomframessmtp@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+VITE_APP_NAME="${APP_NAME}"
+```
+
+### Passo 4: Criar a sua key única para o projeto
+```
+php artisan key:generate
+```
+
+### Passo 5: Criar o banco de dados MySQL utilizando as seguintes informações como base
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=agendaFerias
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### Passo 6: Rodar as migration para montar as tabelas do seu banco de dados
+```
+php artisan migrate
+```
+
+### Passo 7: Rodar os insert para as tabelas de cargo, estado e cidade
+```
+Estão compiladas nos arquivos:
+    - cargos.sql
+    - estados.sql
+    - cidades.sql
+```
+
+## Instruções de uso
+
+### Passo 1: Em uma janela de terminal rode o comando para abrir a porta do Laravel
+```
+php artisan serve
+```
+
+### Passo 2: Em uma outra janela rode o seguinte comando para abrir a porta do Vite
+```
+npm run dev
+```
