@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
         $spinner.removeClass('d-none');
 
         // Mostrar o overlay
-        $('.overlay').show();
+        $('.overlay').css('display', 'flex');
+    });
+
+    // Ocultar o overlay após o carregamento completo da página
+    window.addEventListener('load', function() {
+        $('.overlay').hide();
     });
 });
