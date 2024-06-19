@@ -60,13 +60,15 @@
                                         </button>
                                     </a>
 
-                                    <form action="{{ route('adm.usuario.excluir', $usuario->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger btn-sm" title="Excluir">
-                                            <i class="fa-solid fa-circle-xmark"></i>
-                                        </button>
-                                    </form>
+                                    @if (auth()->user()->id != $usuario->id)
+                                        <form action="{{ route('adm.usuario.excluir', $usuario->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm" title="Excluir">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
