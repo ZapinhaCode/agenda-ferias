@@ -54,15 +54,17 @@
                                 <td class="text-center">{{ is_null($feria->status) ? 'Não enviada para análise' : ($feria->status == 'solicitaAlteracao' ? 'Solicitou alteração' : ucfirst(strtolower($feria->status))) }}</td>
                                 <td class="text-center">{{ $feria->status == 'solicitaAlteracao' ? 'Pedido para alteração' : (is_null($feria->user_autorizacao_id) ? 'Sem resposta' : $feria->usuarioAutoriza->nome) }}</td>
                                 <td class="text-center">
-                                    <form action="{{ route('ferias.enviaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('PUT')
-                                        <button class="btn btn-success btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button>
-                                    </form>
-
-                                    <a href="{{ route('ferias.editar', $feria->id) }}" class="d-inline-block">
-                                        <button class="btn btn-warning btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    </a>
+                                    @if (in_array($feria->status, [null, 'solicitaAlteracao', 'recusado']))
+                                        <form action="{{ route('ferias.enviaSolicitacao', $feria->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('PUT')
+                                            <button class="btn btn-success btn-sm" title="Enviar solicitação"><i class="fa-solid fa-paper-plane"></i></button>
+                                        </form>
+                                
+                                        <a class="d-inline-block" href="{{ route('ferias.editar', $feria->id) }}">
+                                            <button class="btn btn-warning btn-sm" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        </a>
+                                    @endif
 
                                     <a>
                                         <button class="btn btn-info btn-sm open-modal" 
@@ -74,11 +76,13 @@
                                         </button>
                                     </a>
 
-                                    <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger btn-sm" title="Excluir"><i class="fa-solid fa-circle-xmark"></i></button>
-                                    </form>
+                                    @if (in_array($feria->status, [null, 'solicitaAlteracao', 'recusado']))
+                                        <form action="{{ route('ferias.excluir', $feria->id) }}" method="POST" class="d-inline" onsubmit="return confirmDelete()">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm" title="Excluir"><i class="fa-solid fa-circle-xmark"></i></button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

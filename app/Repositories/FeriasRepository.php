@@ -22,7 +22,7 @@ class FeriasRepository {
     public function solicitacoesAdministrativa() {
         return $this->model->newQuery()
             ->where('enviado_solicitacao', 1)
-            ->where('user_autorizacao_id', null)
+            ->where('status', '!=', 'aprovado')
             ->get();
     }
 

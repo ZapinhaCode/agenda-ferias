@@ -95,14 +95,15 @@ class FeriasController extends Controller
     }
 
     public function enviaSolicitacao($id) {
-        // Colocar o enviado_solicitacao = 1
-        // Colocar o status = pendente
-
         DB::beginTransaction();
 
         try {
             $ferias = Ferias::findOrFail($id);
-            $ferias->enviado_solicitacao = 1;
+            if ($ferias->envia_solicitacao == 0) {
+                $ferias->enviado_solicitacao = 1;
+            } else {
+                $ferias->enviado_solicitacao = 0;
+            }
             $ferias->status = 'pendente';
             $ferias->update();
             DB::commit();
@@ -186,6 +187,7 @@ class FeriasController extends Controller
 
         try {
             $ferias = Ferias::findOrFail($id);
+            $ferias->enviado_solicitacao = 0;
             $ferias->status = 'recusado';
             $ferias->user_autorizacao_id = auth()->user()->id;
             $ferias->update();
@@ -214,6 +216,7 @@ class FeriasController extends Controller
 
         $input = $request->all();
         $ferias = Ferias::findOrFail($id);
+        $ferias->enviado_solicitacao = 0;
         $ferias->status = 'solicitaAlteracao';
         $ferias->update();
 
