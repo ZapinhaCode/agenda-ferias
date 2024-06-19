@@ -76,7 +76,7 @@
 
                         <tr>
                             <th scope="row">Complemento <i class="fa-solid fa-pen-clip"></i></th>
-                            <td>{{ $usuario->complemento }}</td>
+                            <td>{{ is_null($usuario->complemento) ? 'Não foi informado' : $usuario->complemento }}</td>
                         </tr>
 
                         <tr>
